@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
-  ArrowLeft, ExternalLink, CheckCircle, XCircle, ClipboardCheck, X, Bookmark
+  ArrowLeft, ExternalLink, CheckCircle, XCircle, ClipboardCheck, X, Bookmark, BookmarkCheck
 } from 'lucide-react';
 import { api } from '../lib/api';
 import type { Scheme } from '../types';
@@ -84,6 +84,7 @@ export default function SchemeDetailPage() {
   const [open, setOpen] = useState(false);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [result, setResult] = useState<'pass' | 'fail' | null>(null);
+  const [saved, setSaved] = useState(false);
 
   const questions = useMemo(() => {
     if (!s) return [];
@@ -177,11 +178,22 @@ export default function SchemeDetailPage() {
             <h1 className="text-2xl font-extrabold">{ta ? s.nameTa : s.nameEn}</h1>
           </div>
           <button
-            onClick={async () => { try { await api.post(`/users/saved/schemes/${s._id}`); } catch {} }}
-            className="shrink-0 rounded-xl p-2.5"
-            style={{ background: 'rgba(255,255,255,0.15)' }}
+            onClick={async () => {
+              try {
+                await api.post(`/users/save/scheme/${s._id}`);
+                setSaved(true);
+              } catch {
+                navigate('/login');
+              }
+            }}
+            title={saved ? 'Saved!' : 'Save this scheme'}
+            className="shrink-0 rounded-xl p-2.5 transition-all"
+            style={{ background: saved ? 'rgba(249,115,22,0.35)' : 'rgba(255,255,255,0.15)' }}
           >
-            <Bookmark size={18} color="#fff" />
+            {saved
+              ? <BookmarkCheck size={18} color="#fff" />
+              : <Bookmark size={18} color="#fff" />
+            }
           </button>
         </div>
       </div>
