@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { Search, ArrowRight, FileText } from 'lucide-react';
 import { api } from '../lib/api';
 import type { Service } from '../types';
@@ -9,7 +9,12 @@ import type { Service } from '../types';
 export default function ServicesPage() {
   const { i18n } = useTranslation();
   const ta = i18n.language === 'ta';
-  const [search, setSearch] = useState('');
+  const [searchParams] = useSearchParams();
+  const [search, setSearch] = useState(() => searchParams.get('q') ?? '');
+
+  useEffect(() => {
+    setSearch(searchParams.get('q') ?? '');
+  }, [searchParams]);
 
   const { data = [], isLoading } = useQuery({
     queryKey: ['services'],

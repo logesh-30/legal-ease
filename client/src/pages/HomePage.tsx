@@ -38,7 +38,12 @@ export default function HomePage() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (search.trim()) navigate('/services');
+    const query = search.trim();
+    if (query) {
+      navigate(`/services?q=${encodeURIComponent(query)}`);
+      return;
+    }
+    navigate('/services');
   };
 
   const categoryColors: Record<string, string> = {
