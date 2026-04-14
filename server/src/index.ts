@@ -9,6 +9,8 @@ import schemeRoutes from "./routes/schemeRoutes.js";
 import officeRoutes from "./routes/officeRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
+import saveRoutes from "./routes/saveRoutes.js";
+import eligibilityRoutes from "./routes/eligibilityRoutes.js";
 
 const app = express();
 app.use(
@@ -27,6 +29,9 @@ app.use("/api/schemes", schemeRoutes);
 app.use("/api/offices", officeRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/save", saveRoutes);
+app.use("/api/saves", saveRoutes);
+app.use("/api", eligibilityRoutes);
 
 const start = async () => {
   await connectDb(process.env.MONGO_URI!);

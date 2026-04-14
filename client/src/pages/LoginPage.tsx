@@ -1,20 +1,41 @@
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Shield, Mail, Lock, User, LogIn, UserPlus } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 import { api } from '../lib/api';
+import type { EligibilityProfile } from '../types';
 
 type FormValues = { name?: string; email: string; password: string; mode: 'login' | 'register' };
 
 export default function LoginPage() {
-  const { register, handleSubmit, watch, setValue } = useForm<FormValues>({
+  const { register, handleSubmit, watch, setValue, formState: { errors } } = useForm<FormValues>({
     defaultValues: { mode: 'login' },
   });
   const nav = useNavigate();
+  const location = useLocation();
+  const { login, register: registerUser } = useAuth();
+  const [apiError, setApiError] = useState('');
   const mode = watch('mode');
 
   const onSubmit = async (v: FormValues) => {
-    await api.post(`/auth/${v.mode === 'login' ? 'login' : 'register'}`, v);
-    nav('/');
+    setApiError('');
+    try {
+      if (v.mode === 'login') {
+        await login(v.email, v.password);
+      } else {
+        await registerUser(v.name?.trim() || 'User', v.email, v.password);
+      }
+      const nextPath = (location.state as { from?: string } | null)?.from ?? '/';
+      if (nextPath !== '/') {
+        nav(nextPath);
+        return;
+      }
+      const { data } = await api.get<EligibilityProfile | null>('/eligibility');
+      nav(data ? '/eligible-schemes' : '/eligibility-form');
+    } catch {
+      setApiError('Incorrect email or password');
+    }
   };
 
   return (
@@ -68,7 +89,7 @@ export default function LoginPage() {
                   {...register('name')}
                   placeholder="Full Name"
                   className="w-full rounded-xl border py-3 pl-11 pr-4 text-sm outline-none transition-all focus:ring-2"
-                  style={{ borderColor: '#e2e8f0', '--tw-ring-color': 'var(--navy-light)' } as any}
+                  style={{ borderColor: '#e2e8f0' }}
                 />
               </div>
             )}
@@ -76,24 +97,36 @@ export default function LoginPage() {
             <div className="relative">
               <Mail size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
               <input
-                {...register('email', { required: true })}
+                {...register('email', {
+                  required: 'Invalid email format',
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: 'Invalid email format',
+                  },
+                })}
                 placeholder="Email address"
                 type="email"
                 className="w-full rounded-xl border py-3 pl-11 pr-4 text-sm outline-none transition-all focus:ring-2"
                 style={{ borderColor: '#e2e8f0' }}
               />
             </div>
+            {errors.email && <p className="text-sm text-red-500">{errors.email.message}</p>}
 
             <div className="relative">
               <Lock size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
               <input
-                {...register('password', { required: true })}
+                {...register('password', {
+                  required: 'Password must be at least 6 characters',
+                  minLength: { value: 6, message: 'Password must be at least 6 characters' },
+                })}
                 placeholder="Password"
                 type="password"
                 className="w-full rounded-xl border py-3 pl-11 pr-4 text-sm outline-none transition-all focus:ring-2"
                 style={{ borderColor: '#e2e8f0' }}
               />
             </div>
+            {errors.password && <p className="text-sm text-red-500">{errors.password.message}</p>}
+            {apiError && <p className="text-sm text-red-500">{apiError}</p>}
 
             <button type="submit" className="btn-primary w-full justify-center py-3.5 text-base mt-2">
               {mode === 'login' ? <LogIn size={18} /> : <UserPlus size={18} />}

@@ -6,6 +6,7 @@ import {
   ArrowLeft, ExternalLink, CheckCircle, XCircle, ClipboardCheck, X, Bookmark, BookmarkCheck
 } from 'lucide-react';
 import { api } from '../lib/api';
+import { useAuth } from '../context/AuthContext';
 import type { Scheme } from '../types';
 
 type QuestionType = 'number' | 'yesno' | 'income';
@@ -74,6 +75,7 @@ export default function SchemeDetailPage() {
   const { i18n } = useTranslation();
   const navigate = useNavigate();
   const ta = i18n.language === 'ta';
+  const { isAuthenticated } = useAuth();
   const T = ta ? text.ta : text.en;
 
   const { data: s, isLoading } = useQuery({
@@ -84,7 +86,15 @@ export default function SchemeDetailPage() {
   const [open, setOpen] = useState(false);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [result, setResult] = useState<'pass' | 'fail' | null>(null);
-  const [saved, setSaved] = useState(false);
+  const [savedOverride, setSavedOverride] = useState<boolean | null>(null);
+  const [saveMessage, setSaveMessage] = useState('');
+  const { data: savedData } = useQuery({
+    queryKey: ['saved-ids'],
+    enabled: isAuthenticated,
+    queryFn: async () => (await api.get<{ schemeIds: string[] }>('/saves')).data,
+  });
+
+  const isSaved = savedOverride ?? Boolean(s && savedData?.schemeIds.includes(s._id));
 
   const questions = useMemo(() => {
     if (!s) return [];
@@ -179,24 +189,37 @@ export default function SchemeDetailPage() {
           </div>
           <button
             onClick={async () => {
-              try {
-                await api.post(`/users/save/scheme/${s._id}`);
-                setSaved(true);
-              } catch {
-                navigate('/login');
+              if (!isAuthenticated) {
+                setSaveMessage('Please login to save items');
+                return;
               }
+              if (isSaved) {
+                await api.delete('/save', { data: { type: 'scheme', itemId: s._id } });
+                setSavedOverride(false);
+                setSaveMessage('');
+                return;
+              }
+              await api.post('/save', { type: 'scheme', itemId: s._id });
+              setSavedOverride(true);
+              setSaveMessage('');
             }}
-            title={saved ? 'Saved!' : 'Save this scheme'}
+            title={!isAuthenticated ? 'Please login to save items' : isSaved ? 'Saved!' : 'Save this scheme'}
+            disabled={!isAuthenticated}
             className="shrink-0 rounded-xl p-2.5 transition-all"
-            style={{ background: saved ? 'rgba(249,115,22,0.35)' : 'rgba(255,255,255,0.15)' }}
+            style={{
+              background: isSaved ? 'rgba(249,115,22,0.35)' : 'rgba(255,255,255,0.15)',
+              opacity: !isAuthenticated ? 0.7 : 1,
+              cursor: !isAuthenticated ? 'not-allowed' : 'pointer',
+            }}
           >
-            {saved
+            {isSaved
               ? <BookmarkCheck size={18} color="#fff" />
               : <Bookmark size={18} color="#fff" />
             }
           </button>
         </div>
       </div>
+      {saveMessage && <p className="text-sm text-amber-600 font-medium">{saveMessage}</p>}
 
       {/* Info cards */}
       {[

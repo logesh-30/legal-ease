@@ -11,6 +11,16 @@ const schemeSchema = new Schema(
     },
     eligibilityEn: { type: String, required: true },
     eligibilityTa: { type: String, required: true },
+    eligibilityRules: {
+      ageMin: { type: Number },
+      ageMax: { type: Number },
+      incomeMax: { type: Number },
+      categories: [{ type: String, enum: ["General", "OBC", "SC", "ST"] }],
+      occupations: [{ type: String }],
+      genders: [{ type: String, enum: ["male", "female", "other"] }],
+      states: [{ type: String }],
+      tags: [{ type: String, enum: ["student", "farmer", "seniorCitizen", "differentlyAbled"] }]
+    },
     benefitsEn: { type: String, required: true },
     benefitsTa: { type: String, required: true },
     howToApplyEn: { type: String, required: true },
