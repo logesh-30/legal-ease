@@ -1,7 +1,8 @@
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, CheckCircle, FileCheck, Scale, Bookmark } from 'lucide-react';
+import { ArrowLeft, ExternalLink, CheckCircle, FileCheck, Scale, Bookmark, BookmarkCheck } from 'lucide-react';
 import { api } from '../lib/api';
 import type { Service } from '../types';
 
@@ -10,6 +11,8 @@ export default function ServiceDetailPage() {
   const { i18n } = useTranslation();
   const navigate = useNavigate();
   const ta = i18n.language === 'ta';
+
+  const [saved, setSaved] = useState(false);
 
   const { data: s, isLoading } = useQuery({
     queryKey: ['service', id],
@@ -26,8 +29,13 @@ export default function ServiceDetailPage() {
   if (!s) return null;
 
   const handleSave = async () => {
-    try { await api.post(`/users/saved/services/${s._id}`); }
-    catch { /* not logged in */ }
+    try {
+      await api.post(`/users/save/service/${s._id}`);
+      setSaved(true);
+    } catch {
+      // not logged in — redirect to login
+      navigate('/login');
+    }
   };
 
   return (
@@ -61,11 +69,14 @@ export default function ServiceDetailPage() {
           </div>
           <button
             onClick={handleSave}
-            title="Save"
+            title={saved ? 'Saved!' : 'Save this service'}
             className="shrink-0 rounded-xl p-2.5 transition-all"
-            style={{ background: 'rgba(255,255,255,0.15)' }}
+            style={{ background: saved ? 'rgba(249,115,22,0.35)' : 'rgba(255,255,255,0.15)' }}
           >
-            <Bookmark size={18} color="#fff" />
+            {saved
+              ? <BookmarkCheck size={18} color="#fff" />
+              : <Bookmark size={18} color="#fff" />
+            }
           </button>
         </div>
       </div>
