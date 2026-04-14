@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useQuery } from '@tanstack/react-query';
 import {
-  Home, FileText, Landmark, MapPin, Bookmark, LogIn, Menu, X, Shield
+  Home, FileText, Landmark, MapPin, Bookmark, LogIn, Menu, X, Shield, LogOut, ClipboardList
 } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
+import { api } from '../lib/api';
+import type { EligibilityProfile } from '../types';
 
 const navLinks = [
   { to: '/', labelKey: 'home', icon: Home },
@@ -11,13 +15,19 @@ const navLinks = [
   { to: '/schemes', labelKey: 'schemes', icon: Landmark },
   { to: '/offices', labelKey: 'offices', icon: MapPin },
   { to: '/saved', labelKey: 'saves', icon: Bookmark },
-  { to: '/login', labelKey: 'login', icon: LogIn },
 ];
 
 export default function AppLayout() {
   const { t, i18n } = useTranslation();
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { isAuthenticated, user, logout } = useAuth();
+  const { data: eligibility } = useQuery({
+    queryKey: ['eligibility-status'],
+    enabled: isAuthenticated,
+    queryFn: async () => (await api.get<EligibilityProfile | null>('/eligibility')).data,
+  });
+  const eligibilityPath = !isAuthenticated ? '/login' : eligibility ? '/eligible-schemes' : '/eligibility-form';
 
   const isActive = (to: string) =>
     to === '/' ? location.pathname === '/' : location.pathname.startsWith(to);
@@ -59,6 +69,37 @@ export default function AppLayout() {
                 {t(labelKey)}
               </Link>
             ))}
+            <Link
+              to={eligibilityPath}
+              className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all no-underline"
+              style={{
+                color: isActive('/eligibility-form') || isActive('/eligible-schemes') ? '#fff' : 'rgba(255,255,255,0.72)',
+                background: isActive('/eligibility-form') || isActive('/eligible-schemes') ? 'rgba(249,115,22,0.18)' : 'transparent',
+                borderBottom: isActive('/eligibility-form') || isActive('/eligible-schemes') ? '2px solid var(--saffron)' : '2px solid transparent',
+              }}
+            >
+              <ClipboardList size={15} />
+              {t('myEligibility')}
+            </Link>
+            {isAuthenticated ? (
+              <button
+                onClick={() => void logout()}
+                className="ml-2 flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all"
+                style={{ color: 'rgba(255,255,255,0.9)' }}
+              >
+                <LogOut size={15} />
+                {user?.name}
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                className="ml-2 flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all no-underline"
+                style={{ color: 'rgba(255,255,255,0.9)' }}
+              >
+                <LogIn size={15} />
+                {t('login')}
+              </Link>
+            )}
             <button
               onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'ta' : 'en')}
               className="ml-2 rounded-lg px-3 py-1.5 text-sm font-semibold transition-all"
@@ -99,6 +140,38 @@ export default function AppLayout() {
                 {t(labelKey)}
               </Link>
             ))}
+            <Link
+              to={eligibilityPath}
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium no-underline transition-all"
+              style={{
+                color: isActive('/eligibility-form') || isActive('/eligible-schemes') ? '#fff' : 'rgba(255,255,255,0.75)',
+                background: isActive('/eligibility-form') || isActive('/eligible-schemes') ? 'var(--saffron)' : 'transparent',
+              }}
+            >
+              <ClipboardList size={16} />
+              {t('myEligibility')}
+            </Link>
+            {isAuthenticated ? (
+              <button
+                onClick={() => { void logout(); setMobileOpen(false); }}
+                className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium no-underline transition-all"
+                style={{ color: 'rgba(255,255,255,0.75)' }}
+              >
+                <LogOut size={16} />
+                {user?.name}
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium no-underline transition-all"
+                style={{ color: 'rgba(255,255,255,0.75)' }}
+              >
+                <LogIn size={16} />
+                {t('login')}
+              </Link>
+            )}
             <button
               onClick={() => { i18n.changeLanguage(i18n.language === 'en' ? 'ta' : 'en'); setMobileOpen(false); }}
               className="w-full rounded-lg px-3 py-2.5 text-sm font-semibold text-left"

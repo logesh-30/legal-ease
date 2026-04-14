@@ -7,7 +7,7 @@ import type { Scheme, Service } from '../types';
 export default function SavedPage() {
   const { data, isLoading } = useQuery({
     queryKey: ['saved'],
-    queryFn: async () => (await api.get<{ services: Service[]; schemes: Scheme[] }>('/users/saved')).data,
+    queryFn: async () => (await api.get<{ services: Service[]; schemes: Scheme[] }>('/saves')).data,
   });
 
   return (

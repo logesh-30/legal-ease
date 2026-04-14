@@ -10,6 +10,9 @@ import LoginPage from './pages/LoginPage';
 import SavedPage from './pages/SavedPage';
 import AdminLoginPage from './pages/admin/AdminLoginPage';
 import AdminDashboardPage from './pages/admin/AdminDashboardPage';
+import ProtectedRoute from './components/ProtectedRoute';
+import EligibilityFormPage from './pages/EligibilityFormPage';
+import EligibleSchemesPage from './pages/EligibleSchemesPage';
 
 export default function App() {
   return (
@@ -22,7 +25,30 @@ export default function App() {
         <Route path="/schemes/:id" element={<SchemeDetailPage />} />
         <Route path="/offices" element={<OfficesPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/saved" element={<SavedPage />} />
+        <Route
+          path="/saved"
+          element={(
+            <ProtectedRoute>
+              <SavedPage />
+            </ProtectedRoute>
+          )}
+        />
+        <Route
+          path="/eligibility-form"
+          element={(
+            <ProtectedRoute>
+              <EligibilityFormPage />
+            </ProtectedRoute>
+          )}
+        />
+        <Route
+          path="/eligible-schemes"
+          element={(
+            <ProtectedRoute>
+              <EligibleSchemesPage />
+            </ProtectedRoute>
+          )}
+        />
         <Route path="/admin/login" element={<AdminLoginPage />} />
         <Route path="/admin" element={<AdminDashboardPage />} />
       </Route>

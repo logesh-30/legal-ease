@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, CheckCircle, FileCheck, Scale, Bookmark, BookmarkCheck } from 'lucide-react';
 import { api } from '../lib/api';
+import { useAuth } from '../context/AuthContext';
 import type { Service } from '../types';
 
 export default function ServiceDetailPage() {
@@ -11,13 +12,22 @@ export default function ServiceDetailPage() {
   const { i18n } = useTranslation();
   const navigate = useNavigate();
   const ta = i18n.language === 'ta';
+  const { isAuthenticated } = useAuth();
 
-  const [saved, setSaved] = useState(false);
+  const [savedOverride, setSavedOverride] = useState<boolean | null>(null);
+  const [saveMessage, setSaveMessage] = useState('');
 
   const { data: s, isLoading } = useQuery({
     queryKey: ['service', id],
     queryFn: async () => (await api.get<Service>(`/services/${id}`)).data,
   });
+  const { data: savedData } = useQuery({
+    queryKey: ['saved-ids'],
+    enabled: isAuthenticated,
+    queryFn: async () => (await api.get<{ serviceIds: string[] }>('/saves')).data,
+  });
+
+  const isSaved = savedOverride ?? Boolean(s && savedData?.serviceIds.includes(s._id));
 
   if (isLoading) return (
     <div className="space-y-4">
@@ -29,13 +39,21 @@ export default function ServiceDetailPage() {
   if (!s) return null;
 
   const handleSave = async () => {
-    try {
-      await api.post(`/users/save/service/${s._id}`);
-      setSaved(true);
-    } catch {
-      // not logged in — redirect to login
-      navigate('/login');
+    if (!isAuthenticated) {
+      setSaveMessage('Please login to save items');
+      return;
     }
+    if (!s) return;
+
+    if (isSaved) {
+      await api.delete('/save', { data: { type: 'service', itemId: s._id } });
+      setSavedOverride(false);
+      setSaveMessage('');
+      return;
+    }
+    await api.post('/save', { type: 'service', itemId: s._id });
+    setSavedOverride(true);
+    setSaveMessage('');
   };
 
   return (
@@ -69,17 +87,23 @@ export default function ServiceDetailPage() {
           </div>
           <button
             onClick={handleSave}
-            title={saved ? 'Saved!' : 'Save this service'}
+            title={!isAuthenticated ? 'Please login to save items' : isSaved ? 'Saved!' : 'Save this service'}
+            disabled={!isAuthenticated}
             className="shrink-0 rounded-xl p-2.5 transition-all"
-            style={{ background: saved ? 'rgba(249,115,22,0.35)' : 'rgba(255,255,255,0.15)' }}
+            style={{
+              background: isSaved ? 'rgba(249,115,22,0.35)' : 'rgba(255,255,255,0.15)',
+              opacity: !isAuthenticated ? 0.7 : 1,
+              cursor: !isAuthenticated ? 'not-allowed' : 'pointer',
+            }}
           >
-            {saved
+            {isSaved
               ? <BookmarkCheck size={18} color="#fff" />
               : <Bookmark size={18} color="#fff" />
             }
           </button>
         </div>
       </div>
+      {saveMessage && <p className="text-sm text-amber-600 font-medium">{saveMessage}</p>}
 
       {/* Steps */}
       <div className="card p-6">

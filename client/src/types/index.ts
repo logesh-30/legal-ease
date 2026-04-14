@@ -39,3 +39,16 @@ export type Office = {
 };
 
 export type User = { _id: string; name: string; email: string; role: 'user' | 'admin' };
+
+export type EligibilityProfile = {
+  age: number;
+  gender: 'Male' | 'Female' | 'Other';
+  annualIncome: number;
+  occupation: 'Farmer' | 'Student' | 'Salaried' | 'Self Employed' | 'Unemployed' | 'Other';
+  category: 'General' | 'OBC' | 'SC' | 'ST';
+  state: string;
+  isStudent: boolean;
+  isFarmer: boolean;
+  isSeniorCitizen: boolean;
+  isDifferentlyAbled: boolean;
+};
