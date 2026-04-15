@@ -70,19 +70,20 @@ export default function AppLayout() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-0.5">
             {allDesktopLinks.map(({ to, labelKey, icon: Icon }) => (
               <Link
                 key={to}
                 to={to}
-                className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all no-underline"
+                className="flex items-center gap-1 rounded-lg px-2 py-2 font-medium transition-all no-underline whitespace-nowrap"
                 style={{
+                  fontSize: i18n.language === 'ta' ? '0.78rem' : '0.875rem',
                   color: isActive(to) ? '#fff' : 'rgba(255,255,255,0.72)',
                   background: isActive(to) ? 'rgba(249,115,22,0.18)' : 'transparent',
                   borderBottom: isActive(to) ? '2px solid var(--saffron)' : '2px solid transparent',
                 }}
               >
-                <Icon size={15} />
+                <Icon size={14} />
                 {t(labelKey)}
               </Link>
             ))}
@@ -91,31 +92,31 @@ export default function AppLayout() {
             {isAuthenticated && (
               <Link
                 to={eligibilityPath}
-                className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all no-underline"
+                className="flex items-center gap-1 rounded-lg px-2 py-2 font-medium transition-all no-underline whitespace-nowrap"
                 style={{
+                  fontSize: i18n.language === 'ta' ? '0.78rem' : '0.875rem',
                   color: isActive('/eligibility-form') || isActive('/eligible-schemes') ? '#fff' : 'rgba(255,255,255,0.72)',
                   background: isActive('/eligibility-form') || isActive('/eligible-schemes') ? 'rgba(249,115,22,0.18)' : 'transparent',
                   borderBottom: isActive('/eligibility-form') || isActive('/eligible-schemes') ? '2px solid var(--saffron)' : '2px solid transparent',
                 }}
               >
-                <ClipboardList size={15} />
+                <ClipboardList size={14} />
                 {t('myEligibility')}
               </Link>
             )}
 
             {/* Auth section */}
             {isAuthenticated ? (
-              <div className="relative ml-2" ref={dropdownRef}>
+              <div className="relative ml-1" ref={dropdownRef}>
                 <button
                   onClick={() => setDropdownOpen((v) => !v)}
-                  className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition-all"
+                  className="flex items-center gap-1.5 rounded-lg px-2 py-2 text-sm font-semibold transition-all"
                   style={{ background: 'rgba(255,255,255,0.12)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)' }}
                 >
-                  <div className="flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold" style={{ background: 'var(--saffron)' }}>
+                  <div className="flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold shrink-0" style={{ background: 'var(--saffron)' }}>
                     {user?.name?.[0]?.toUpperCase() ?? 'U'}
                   </div>
-                  {user?.name}
-                  <ChevronDown size={14} style={{ opacity: 0.7, transform: dropdownOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
+                  <ChevronDown size={13} style={{ opacity: 0.7, transform: dropdownOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
                 </button>
 
                 {dropdownOpen && (
@@ -141,7 +142,7 @@ export default function AppLayout() {
             ) : (
               <Link
                 to="/login"
-                className="ml-2 flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-semibold transition-all no-underline"
+                className="ml-1 flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-semibold transition-all no-underline whitespace-nowrap"
                 style={{ background: 'var(--saffron)', color: '#fff' }}
               >
                 <LogIn size={15} />
@@ -152,7 +153,7 @@ export default function AppLayout() {
             {/* Language toggle */}
             <button
               onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'ta' : 'en')}
-              className="ml-2 rounded-lg px-3 py-1.5 text-sm font-semibold transition-all"
+              className="ml-1 rounded-lg px-2.5 py-1.5 text-sm font-semibold transition-all whitespace-nowrap"
               style={{ background: 'rgba(255,255,255,0.12)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)' }}
             >
               {i18n.language === 'en' ? 'தமிழ்' : 'English'}

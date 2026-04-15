@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Link, useNavigate } from 'react-router-dom';
-import { Landmark, ArrowRight, Pencil, CheckCircle2 } from 'lucide-react';
+import { Landmark, ArrowRight, Pencil, CheckCircle2, Tag, ExternalLink } from 'lucide-react';
 import { api } from '../lib/api';
 import type { Scheme } from '../types';
 import { useTranslation } from 'react-i18next';
@@ -69,29 +69,58 @@ export default function EligibleSchemesPage() {
 
       {!isLoading && data.length > 0 && (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {data.map((scheme) => (
-            <div key={scheme._id} className="card p-5 flex flex-col gap-3">
-              <div className="flex items-start justify-between gap-2">
-                <h2 className="font-bold text-base" style={{ color: 'var(--navy-dark)' }}>{ta ? scheme.nameTa : scheme.nameEn}</h2>
-                <span
-                  className="shrink-0 rounded-full px-2.5 py-0.5 text-xs font-semibold"
-                  style={{ background: categoryMeta[scheme.category]?.bg ?? '#e2e8f0', color: categoryMeta[scheme.category]?.color ?? 'var(--navy)' }}
-                >
-                  {scheme.category}
-                </span>
+          {data.map((scheme) => {
+            const meta = categoryMeta[scheme.category];
+            const reasons = (scheme as any).matchedReasons as string[] ?? [];
+            return (
+              <div key={scheme._id} className="card p-5 flex flex-col gap-3">
+                <div className="flex items-start justify-between gap-2">
+                  <h2 className="font-bold text-sm leading-snug" style={{ color: 'var(--navy-dark)' }}>
+                    {ta ? scheme.nameTa : scheme.nameEn}
+                  </h2>
+                  <span
+                    className="shrink-0 rounded-full px-2.5 py-0.5 text-xs font-semibold"
+                    style={{ background: meta?.bg ?? '#e2e8f0', color: meta?.color ?? 'var(--navy)' }}
+                  >
+                    {scheme.category}
+                  </span>
+                </div>
+
+                {/* Matched reason tags */}
+                {reasons.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5">
+                    {reasons.map((r) => (
+                      <span
+                        key={r}
+                        className="flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium"
+                        style={{ background: '#10b98115', color: 'var(--mint)' }}
+                      >
+                        <Tag size={9} />{r}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <p className="text-sm text-slate-600 line-clamp-2">{ta ? scheme.benefitsTa : scheme.benefitsEn}</p>
+
+                <div className="mt-auto flex items-center gap-3">
+                  <a href={scheme.officialLink} target="_blank" rel="noreferrer"
+                    className="btn-primary no-underline text-xs py-2 px-3"
+                    style={{ display: 'inline-flex' }}
+                  >
+                    <ExternalLink size={13} />
+                    {ta ? 'விண்ணப்பிக்க' : 'Apply Now'}
+                  </a>
+                  <Link to={`/schemes/${scheme._id}`}
+                    className="flex items-center gap-1 text-xs font-semibold no-underline"
+                    style={{ color: 'var(--navy)' }}
+                  >
+                    {ta ? 'விவரங்கள்' : 'Details'} <ArrowRight size={12} />
+                  </Link>
+                </div>
               </div>
-              <p className="text-sm text-slate-600 line-clamp-3">{ta ? scheme.eligibilityTa : scheme.eligibilityEn}</p>
-              <p className="text-sm text-slate-600 line-clamp-3">{ta ? scheme.benefitsTa : scheme.benefitsEn}</p>
-              <div className="mt-auto flex items-center gap-3">
-                <a href={scheme.officialLink} target="_blank" rel="noreferrer" className="btn-primary no-underline">
-                  {ta ? 'விண்ணப்பிக்க' : 'How to Apply'}
-                </a>
-                <Link to={`/schemes/${scheme._id}`} className="text-sm font-semibold no-underline" style={{ color: 'var(--saffron)' }}>
-                  {ta ? 'விவரங்கள்' : 'View Details'} <ArrowRight size={14} />
-                </Link>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
     </div>
