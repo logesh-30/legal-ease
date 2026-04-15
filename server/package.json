@@ -8,6 +8,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "seed": "tsx seed.ts",
+    "seed:eligibility": "tsx seedEligibilityRules.ts",
     "lint": "eslint src --ext .ts"
   },
   "keywords": [],

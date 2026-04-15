@@ -12,5 +12,5 @@
     "forceConsistentCasingInFileNames": true,
     "types": ["node"]
   },
-  "include": ["src", "seed.ts"]
+  "include": ["src", "seed.ts", "seedEligibilityRules.ts"]
 }

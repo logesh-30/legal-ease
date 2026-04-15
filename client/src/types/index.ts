@@ -14,6 +14,17 @@ export type Service = {
   icon: string;
 };
 
+export type EligibilityRules = {
+  ageMin?: number;
+  ageMax?: number;
+  incomeMax?: number;
+  categories?: string[];
+  occupations?: string[];
+  genders?: string[];
+  states?: string[];
+  tags?: string[];
+};
+
 export type Scheme = {
   _id: string;
   nameEn: string;
@@ -21,6 +32,7 @@ export type Scheme = {
   category: 'Education' | 'Business' | 'Financial' | 'Health' | 'Agriculture';
   eligibilityEn: string;
   eligibilityTa: string;
+  eligibilityRules?: EligibilityRules;
   benefitsEn: string;
   benefitsTa: string;
   howToApplyEn: string;
