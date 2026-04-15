@@ -233,7 +233,7 @@ export default function SchemeDetailPage() {
       </div>
       {saveMessage && <p className="text-sm text-amber-600 font-medium">{saveMessage}</p>}
 
-      {/* Info cards */}
+      {/* Eligibility & Benefits */}
       {[
         { label: tx.eligibility, content: lang === 'ta' ? s.eligibilityTa : s.eligibilityEn, color: 'var(--sky)' },
         { label: tx.benefits,    content: lang === 'ta' ? s.benefitsTa    : s.benefitsEn,    color: 'var(--mint)' },

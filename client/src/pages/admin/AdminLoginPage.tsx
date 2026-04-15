@@ -8,7 +8,8 @@ export default function AdminLoginPage() {
   const nav = useNavigate();
 
   const onSubmit = async (v: { email: string; password: string }) => {
-    await api.post('/auth/login', v);
+    const { data } = await api.post<{ token: string }>('/auth/login', v);
+    localStorage.setItem('legalease_token', data.token);
     nav('/admin');
   };
 

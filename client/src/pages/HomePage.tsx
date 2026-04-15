@@ -261,7 +261,7 @@ export default function HomePage() {
           { icon: FileText, label: ta ? 'ஆவண சேவைகள்' : 'Document Services', value: services.length || '20+', color: 'var(--navy)' },
           { icon: Landmark, label: ta ? 'அரசு திட்டங்கள்' : 'Govt Schemes', value: schemes.length || '15+', color: 'var(--saffron)' },
           { icon: MapPin, label: ta ? 'அலுவலகங்கள்' : 'Offices Mapped', value: '50+', color: 'var(--mint)' },
-          { icon: Users, label: ta ? 'பயனர்கள்' : 'Citizens Helped', value: '10K+', color: 'var(--sky)' },
+          { icon: Users, label: ta ? 'குடிமக்களுக்கு உதவ முடியும்' : 'Citizens can be Helped', value: '5K+', color: 'var(--sky)' },
         ].map(({ icon: Icon, label, value, color }) => (
           <div key={label} className="card flex items-center gap-4 p-5">
             <div
