@@ -24,14 +24,33 @@ export default function HomePage() {
     queryFn: async () => (await api.get<Scheme[]>('/schemes')).data,
   });
 
+  // Live suggestions: match against both services and schemes by title
+  const q = search.toLowerCase().trim();
+  const matchedServices = q
+    ? services.filter((s) =>
+        s.nameEn.toLowerCase().startsWith(q) ||
+        s.nameTa.toLowerCase().startsWith(q))
+    : [];
+  const matchedSchemes = q
+    ? schemes.filter((s) =>
+        s.nameEn.toLowerCase().startsWith(q) ||
+        s.nameTa.toLowerCase().startsWith(q))
+    : [];
+  const showDropdown = q.length > 0 && (matchedServices.length > 0 || matchedSchemes.length > 0);
+
   const startVoice = () => {
     const Rec = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (!Rec) return alert('Voice input not supported in this browser');
     const rec = new Rec();
     rec.lang = ta ? 'ta-IN' : 'en-IN';
     rec.onresult = (e: any) => {
-      setSearch(e.results[0][0].transcript);
-      navigate('/services');
+      const transcript = e.results[0][0].transcript as string;
+      setSearch(transcript);
+      // Smart route: check schemes first, then services
+      const tq = transcript.trim().toLowerCase();
+      const schemeHit = schemes.find((s) => s.nameEn.toLowerCase().includes(tq) || s.nameTa.toLowerCase().includes(tq));
+      if (schemeHit) navigate(`/schemes?q=${encodeURIComponent(transcript.trim())}`);
+      else navigate(`/services?q=${encodeURIComponent(transcript.trim())}`);
     };
     rec.start();
   };
@@ -39,11 +58,13 @@ export default function HomePage() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     const query = search.trim();
-    if (query) {
-      navigate(`/services?q=${encodeURIComponent(query)}`);
-      return;
-    }
-    navigate('/services');
+    if (!query) { navigate('/services'); return; }
+    // Route to schemes if more scheme matches, else services
+    const sq = query.toLowerCase();
+    const svcMatches = services.filter((s) => s.nameEn.toLowerCase().includes(sq) || s.nameTa.toLowerCase().includes(sq)).length;
+    const schMatches = schemes.filter((s) => s.nameEn.toLowerCase().includes(sq) || s.nameTa.toLowerCase().includes(sq)).length;
+    if (schMatches > svcMatches) navigate(`/schemes?q=${encodeURIComponent(query)}`);
+    else navigate(`/services?q=${encodeURIComponent(query)}`);
   };
 
   const categoryColors: Record<string, string> = {
@@ -102,9 +123,66 @@ export default function HomePage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder={t('search')}
+                autoComplete="off"
                 className="w-full rounded-xl py-3.5 pl-11 pr-4 text-sm font-medium outline-none"
                 style={{ color: 'var(--navy-dark)', background: '#fff' }}
               />
+              {/* Live dropdown */}
+              {showDropdown && (
+                <div
+                  className="absolute left-0 right-0 top-full mt-1 rounded-xl shadow-xl overflow-hidden z-50"
+                  style={{ background: '#fff', border: '1px solid #e2e8f0' }}
+                >
+                  {matchedServices.length > 0 && (
+                    <>
+                      <p className="px-4 py-2 text-xs font-bold uppercase tracking-wide" style={{ color: 'var(--navy)', background: '#f0f4fd' }}>
+                        <FileText size={11} className="inline mr-1" />
+                        {ta ? 'ஆவண சேவைகள்' : 'Document Services'}
+                      </p>
+                      {matchedServices.slice(0, 4).map((s) => (
+                        <button
+                          key={s._id}
+                          type="button"
+                          onClick={() => { setSearch(''); navigate(`/services/${s._id}`); }}
+                          className="flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm hover:bg-slate-50 transition-colors"
+                          style={{ color: 'var(--navy-dark)' }}
+                        >
+                          <span className="text-base">{s.icon}</span>
+                          {ta ? s.nameTa : s.nameEn}
+                        </button>
+                      ))}
+                    </>
+                  )}
+                  {matchedSchemes.length > 0 && (
+                    <>
+                      <p className="px-4 py-2 text-xs font-bold uppercase tracking-wide" style={{ color: 'var(--saffron)', background: '#f0f4fd' }}>
+                        <Landmark size={11} className="inline mr-1" />
+                        {ta ? 'அரசு திட்டங்கள்' : 'Government Schemes'}
+                      </p>
+                      {matchedSchemes.slice(0, 4).map((s) => (
+                        <button
+                          key={s._id}
+                          type="button"
+                          onClick={() => { setSearch(''); navigate(`/schemes/${s._id}`); }}
+                          className="flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm hover:bg-slate-50 transition-colors"
+                          style={{ color: 'var(--navy-dark)' }}
+                        >
+                          <Landmark size={14} style={{ color: 'var(--saffron)', flexShrink: 0 }} />
+                          {ta ? s.nameTa : s.nameEn}
+                        </button>
+                      ))}
+                    </>
+                  )}
+                  <button
+                    type="submit"
+                    className="flex w-full items-center gap-2 px-4 py-2.5 text-sm font-semibold border-t"
+                    style={{ color: 'var(--navy)', borderColor: '#f1f5f9' }}
+                  >
+                    <Search size={13} />
+                    {ta ? `"${search}" க்கு அனைத்து முடிவுகளும்` : `See all results for "${search}"`}
+                  </button>
+                </div>
+              )}
             </div>
             <button type="submit" className="btn-primary px-5">
               <Search size={16} />

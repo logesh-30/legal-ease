@@ -1,0 +1,1062 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2026-04-15",
+    "region": "India / Tamil Nadu",
+    "description": "Comprehensive list of government document services available in India with Tamil Nadu-specific portals"
+  },
+  "services": [
+    {
+      "id": "community-certificate",
+      "category": "State Certificate",
+      "name_en": "Community Certificate",
+      "name_ta": "சமூகச் சான்றிதழ்",
+      "description_en": "Official certificate issued to identify a person's community/caste for availing reservations in education and government jobs.",
+      "description_ta": "கல்வி மற்றும் அரசு வேலைகளில் இட ஒதுக்கீடு பெற சமூகத்தை அடையாளம் காணும் சான்றிதழ்.",
+      "portal": "https://www.tnesevai.tn.gov.in",
+      "legal_en": "Issued by the Tamil Nadu Government under the Tamil Nadu Backward Classes, Scheduled Castes and Scheduled Tribes (Reservation of Seats in Educational Institutions and of appointments or posts in the Services under the State) Act, 1993.",
+      "legal_ta": "தமிழ்நாடு பிற்படுத்தப்பட்ட வகுப்பினர், தாழ்த்தப்பட்டோர் மற்றும் பழங்குடியினர் (கல்வி நிறுவனங்களில் இட ஒதுக்கீடு) சட்டம், 1993 இன் கீழ் வழங்கப்படுகிறது.",
+      "issuing_authority_en": "Tahsildar / Revenue Divisional Officer",
+      "issuing_authority_ta": "தாசில்தார் / வருவாய் கோட்ட அலுவலர்",
+      "steps_en": [
+        "Visit TN eSevai portal at https://www.tnesevai.tn.gov.in",
+        "Register or log in with your mobile number and OTP",
+        "Navigate to Revenue Department → Community Certificate",
+        "Fill in the application form with personal and family details",
+        "Upload required documents (Aadhaar, Ration Card, Parent community proof)",
+        "Pay applicable service fee online",
+        "Submit application and note the Application Reference Number",
+        "Track status using the Reference Number on the portal",
+        "Collect certificate from the nearest eSevai Centre or download digitally"
+      ],
+      "steps_ta": [
+        "https://www.tnesevai.tn.gov.in இல் TN eSevai போர்ட்டலை திறக்கவும்",
+        "மொபைல் நம்பர் மற்றும் OTP மூலம் பதிவு செய்யவும் அல்லது உள்நுழையவும்",
+        "வருவாய் துறை → சமூகச் சான்றிதழ் என்பதை தேர்வு செய்யவும்",
+        "தனிப்பட்ட மற்றும் குடும்ப விவரங்களுடன் விண்ணப்பப் படிவத்தை நிரப்பவும்",
+        "தேவையான ஆவணங்களை பதிவேற்றவும்",
+        "சேவை கட்டணத்தை ஆன்லைனில் செலுத்தவும்",
+        "விண்ணப்பத்தை சமர்ப்பித்து Reference Number குறித்துக்கொள்ளவும்",
+        "போர்ட்டலில் Reference Number மூலம் நிலையை கண்காணிக்கவும்",
+        "அருகிலுள்ள eSevai மையத்தில் சான்றிதழை பெறவும் அல்லது பதிவிறக்கம் செய்யவும்"
+      ],
+      "documents_en": [
+        "Aadhaar Card (applicant)",
+        "Ration Card / Smart Family Card",
+        "Community certificate of parent or blood relative",
+        "Address proof (Electricity bill / Voter ID)",
+        "School Transfer Certificate (if applicable)"
+      ],
+      "documents_ta": [
+        "ஆதார் அட்டை (விண்ணப்பதாரர்)",
+        "ரேஷன் கார்டு / ஸ்மார்ட் குடும்ப அட்டை",
+        "பெற்றோர் அல்லது உறவினரின் சமூகச் சான்றிதழ்",
+        "முகவரி சான்று (மின்சார கட்டண ரசீது / வாக்காளர் அடையாள அட்டை)",
+        "பள்ளி இடமாற்று சான்றிதழ் (பொருந்தினால்)"
+      ],
+      "fee_en": "Rs. 60 (approximate, may vary by eSevai centre)",
+      "processing_time_en": "7–15 working days",
+      "validity_en": "Lifetime (unless community status changes)"
+    },
+    {
+      "id": "income-certificate",
+      "category": "State Certificate",
+      "name_en": "Income Certificate",
+      "name_ta": "வருமானச் சான்றிதழ்",
+      "description_en": "Certificate issued to declare a family's annual income, required for scholarships, reservations, and welfare schemes.",
+      "description_ta": "உதவித்தொகை, இட ஒதுக்கீடு மற்றும் நல திட்டங்களுக்கு குடும்பத்தின் வருடாந்திர வருமானத்தை அறிவிக்கும் சான்றிதழ்.",
+      "portal": "https://www.tnesevai.tn.gov.in",
+      "legal_en": "Issued by Tamil Nadu Revenue Department under the Revenue Administration Act.",
+      "legal_ta": "வருவாய் நிர்வாக சட்டத்தின் கீழ் தமிழ்நாடு வருவாய் துறை வழங்குகிறது.",
+      "issuing_authority_en": "Tahsildar / Revenue Department",
+      "issuing_authority_ta": "தாசில்தார் / வருவாய் துறை",
+      "steps_en": [
+        "Visit https://www.tnesevai.tn.gov.in",
+        "Log in or create a new account",
+        "Go to Revenue Department → Income Certificate",
+        "Fill in the application with income details of all earning family members",
+        "Upload required documents",
+        "Pay the service fee",
+        "Submit and save the Reference Number",
+        "Track application status online",
+        "Download or collect the certificate from the eSevai centre"
+      ],
+      "steps_ta": [
+        "https://www.tnesevai.tn.gov.in ஐ திறக்கவும்",
+        "உள்நுழையவும் அல்லது புதிய கணக்கு உருவாக்கவும்",
+        "வருவாய் துறை → வருமானச் சான்றிதழ் என்பதை தேர்வு செய்யவும்",
+        "அனைத்து வருமானம் உள்ள குடும்ப உறுப்பினர்களின் விவரங்களை நிரப்பவும்",
+        "தேவையான ஆவணங்களை பதிவேற்றவும்",
+        "சேவை கட்டணம் செலுத்தவும்",
+        "சமர்ப்பித்து Reference Number சேமிக்கவும்",
+        "ஆன்லைனில் விண்ணப்ப நிலையை கண்காணிக்கவும்",
+        "சான்றிதழை பதிவிறக்கம் செய்யவும் அல்லது eSevai மையத்தில் பெறவும்"
+      ],
+      "documents_en": [
+        "Aadhaar Card",
+        "Ration Card / Smart Family Card",
+        "Salary certificate / Pay slip (for employed persons)",
+        "Self-declaration for income (for self-employed)",
+        "Address proof"
+      ],
+      "documents_ta": [
+        "ஆதார் அட்டை",
+        "ரேஷன் கார்டு / ஸ்மார்ட் குடும்ப அட்டை",
+        "சம்பள சான்றிதழ் (வேலைப்பழியில் உள்ளவர்களுக்கு)",
+        "சுய-வருமான அறிவிப்பு (சுயதொழில் செய்பவர்களுக்கு)",
+        "முகவரி சான்று"
+      ],
+      "fee_en": "Rs. 60 (approximate)",
+      "processing_time_en": "7–15 working days",
+      "validity_en": "1 year from date of issue"
+    },
+    {
+      "id": "nativity-certificate",
+      "category": "State Certificate",
+      "name_en": "Nativity Certificate",
+      "name_ta": "பூர்வீகச் சான்றிதழ்",
+      "description_en": "Certificate confirming that a person is a native of Tamil Nadu, required for state quota admissions and government jobs.",
+      "description_ta": "ஒருவர் தமிழ்நாட்டை சேர்ந்தவர் என்பதை உறுதிப்படுத்தும் சான்றிதழ், மாநில ஒதுக்கீடு சேர்க்கை மற்றும் அரசு வேலைகளுக்கு தேவை.",
+      "portal": "https://www.tnesevai.tn.gov.in",
+      "legal_en": "Issued by Tamil Nadu Revenue Department.",
+      "legal_ta": "தமிழ்நாடு வருவாய் துறை வழங்குகிறது.",
+      "issuing_authority_en": "Tahsildar",
+      "issuing_authority_ta": "தாசில்தார்",
+      "steps_en": [
+        "Visit https://www.tnesevai.tn.gov.in",
+        "Log in or register",
+        "Navigate to Revenue Department → Nativity Certificate",
+        "Fill in birth details and family native details",
+        "Upload documents",
+        "Pay the fee and submit",
+        "Track and download certificate"
+      ],
+      "steps_ta": [
+        "https://www.tnesevai.tn.gov.in ஐ திறக்கவும்",
+        "உள்நுழையவும் அல்லது பதிவு செய்யவும்",
+        "வருவாய் துறை → பூர்வீகச் சான்றிதழ் என்பதை தேர்வு செய்யவும்",
+        "பிறப்பு மற்றும் குடும்ப பூர்வீக விவரங்களை நிரப்பவும்",
+        "ஆவணங்களை பதிவேற்றவும்",
+        "கட்டணம் செலுத்தி சமர்ப்பிக்கவும்",
+        "கண்காணித்து சான்றிதழை பதிவிறக்கம் செய்யவும்"
+      ],
+      "documents_en": [
+        "Aadhaar Card",
+        "Birth Certificate",
+        "Ration Card",
+        "School records showing native place",
+        "Parent's nativity certificate (if available)"
+      ],
+      "documents_ta": [
+        "ஆதார் அட்டை",
+        "பிறப்புச் சான்றிதழ்",
+        "ரேஷன் கார்டு",
+        "பூர்வீக இடம் காட்டும் பள்ளி ஆவணங்கள்",
+        "பெற்றோரின் பூர்வீகச் சான்றிதழ் (கிடைத்தால்)"
+      ],
+      "fee_en": "Rs. 60 (approximate)",
+      "processing_time_en": "7–15 working days",
+      "validity_en": "Lifetime"
+    },
+    {
+      "id": "residence-certificate",
+      "category": "State Certificate",
+      "name_en": "Residence / Domicile Certificate",
+      "name_ta": "வாசஸ்தல சான்றிதழ்",
+      "description_en": "Certificate confirming a person's current residence in Tamil Nadu, used for school admissions, jobs, and government schemes.",
+      "description_ta": "தமிழ்நாட்டில் ஒருவரின் தற்போதைய குடியிருப்பை உறுதிப்படுத்தும் சான்றிதழ்.",
+      "portal": "https://www.tnesevai.tn.gov.in",
+      "legal_en": "Issued by Tamil Nadu Revenue Department.",
+      "legal_ta": "தமிழ்நாடு வருவாய் துறை வழங்குகிறது.",
+      "issuing_authority_en": "Tahsildar / Village Administrative Officer",
+      "issuing_authority_ta": "தாசில்தார் / கிராம நிர்வாக அலுவலர்",
+      "steps_en": [
+        "Visit https://www.tnesevai.tn.gov.in",
+        "Log in or register",
+        "Select Revenue Department → Residence Certificate",
+        "Fill current address and duration of stay",
+        "Upload address proof documents",
+        "Pay fee and submit",
+        "Collect or download certificate"
+      ],
+      "steps_ta": [
+        "https://www.tnesevai.tn.gov.in ஐ திறக்கவும்",
+        "உள்நுழையவும் அல்லது பதிவு செய்யவும்",
+        "வருவாய் துறை → வாசஸ்தல சான்றிதழ் தேர்வு செய்யவும்",
+        "தற்போதைய முகவரி மற்றும் தங்கியிருந்த காலம் நிரப்பவும்",
+        "முகவரி சான்று ஆவணங்களை பதிவேற்றவும்",
+        "கட்டணம் செலுத்தி சமர்ப்பிக்கவும்",
+        "சான்றிதழை பெறவும் அல்லது பதிவிறக்கம் செய்யவும்"
+      ],
+      "documents_en": [
+        "Aadhaar Card",
+        "Ration Card",
+        "Electricity / Water bill (current address)",
+        "Rental agreement (if tenant)"
+      ],
+      "documents_ta": [
+        "ஆதார் அட்டை",
+        "ரேஷன் கார்டு",
+        "மின்சார / தண்ணீர் கட்டண ரசீது (தற்போதைய முகவரி)",
+        "வாடகை ஒப்பந்தம் (வாடகையில் இருந்தால்)"
+      ],
+      "fee_en": "Rs. 60 (approximate)",
+      "processing_time_en": "7–10 working days",
+      "validity_en": "6 months to 1 year (purpose-dependent)"
+    },
+    {
+      "id": "birth-certificate",
+      "category": "Civil Registration",
+      "name_en": "Birth Certificate",
+      "name_ta": "பிறப்புச் சான்றிதழ்",
+      "description_en": "Official document recording the birth of an individual, required for school admissions, passport, Aadhaar and all government services.",
+      "description_ta": "ஒருவரின் பிறப்பை பதிவு செய்யும் ஆவணம், பள்ளி சேர்க்கை, பாஸ்போர்ட், ஆதார் மற்றும் அரசு சேவைகளுக்கு தேவை.",
+      "portal": "https://crstn.org",
+      "legal_en": "Issued under the Registration of Births and Deaths Act, 1969.",
+      "legal_ta": "பிறப்பு மற்றும் இறப்பு பதிவு சட்டம், 1969 இன் கீழ் வழங்கப்படுகிறது.",
+      "issuing_authority_en": "Registrar of Births and Deaths (Municipal Corporation / Panchayat)",
+      "issuing_authority_ta": "பிறப்பு மற்றும் இறப்பு பதிவாளர் (நகராட்சி / பஞ்சாயத்து)",
+      "steps_en": [
+        "Visit https://crstn.org (Civil Registration System Tamil Nadu)",
+        "Click on 'Apply for Birth Certificate'",
+        "Enter the child's date of birth and place of birth (hospital/home)",
+        "Fill in parent details (name, Aadhaar, address)",
+        "Upload hospital discharge summary or midwife report",
+        "Submit the application",
+        "Pay prescribed fee online",
+        "If records exist, download certificate directly; else wait for registrar verification",
+        "Collect from respective municipal/panchayat office if physical copy needed"
+      ],
+      "steps_ta": [
+        "https://crstn.org (சிவில் பதிவு முறை தமிழ்நாடு) திறக்கவும்",
+        "'பிறப்புச் சான்றிதழுக்கு விண்ணப்பிக்கவும்' என்பதை கிளிக் செய்யவும்",
+        "குழந்தையின் பிறந்த தேதி மற்றும் இடத்தை உள்ளிடவும்",
+        "பெற்றோர் விவரங்களை நிரப்பவும்",
+        "மருத்துவமனை டிஸ்சார்ஜ் சுருக்கம் அல்லது மருத்துவச்சி அறிக்கை பதிவேற்றவும்",
+        "விண்ணப்பத்தை சமர்ப்பிக்கவும்",
+        "கட்டணத்தை ஆன்லைனில் செலுத்தவும்",
+        "பதிவுகள் இருந்தால் நேரடியாக பதிவிறக்கம் செய்யவும்; இல்லையேல் சரிபார்ப்புக்காக காத்திருக்கவும்",
+        "இயல் நகல் தேவைப்பட்டால் நகராட்சி / பஞ்சாயத்து அலுவலகத்தில் பெறவும்"
+      ],
+      "documents_en": [
+        "Hospital discharge summary / Midwife's letter",
+        "Parent's Aadhaar Card",
+        "Parent's Marriage Certificate",
+        "Ration Card (for address proof)"
+      ],
+      "documents_ta": [
+        "மருத்துவமனை டிஸ்சார்ஜ் சுருக்கம் / மருத்துவச்சி கடிதம்",
+        "பெற்றோரின் ஆதார் அட்டை",
+        "பெற்றோரின் திருமண சான்றிதழ்",
+        "ரேஷன் கார்டு (முகவரி சான்றுக்கு)"
+      ],
+      "fee_en": "Rs. 10–50 depending on municipality",
+      "processing_time_en": "1–7 working days",
+      "validity_en": "Lifetime"
+    },
+    {
+      "id": "death-certificate",
+      "category": "Civil Registration",
+      "name_en": "Death Certificate",
+      "name_ta": "இறப்புச் சான்றிதழ்",
+      "description_en": "Official certificate confirming the death of an individual, required for legal heir claims, insurance, and property transfer.",
+      "description_ta": "ஒருவரின் மரணத்தை உறுதிப்படுத்தும் சான்றிதழ், சட்டப்பூர்வ வாரிசு, காப்பீடு மற்றும் சொத்து பரிமாற்றத்திற்கு தேவை.",
+      "portal": "https://crstn.org",
+      "legal_en": "Issued under the Registration of Births and Deaths Act, 1969.",
+      "legal_ta": "பிறப்பு மற்றும் இறப்பு பதிவு சட்டம், 1969 இன் கீழ் வழங்கப்படுகிறது.",
+      "issuing_authority_en": "Registrar of Births and Deaths",
+      "issuing_authority_ta": "பிறப்பு மற்றும் இறப்பு பதிவாளர்",
+      "steps_en": [
+        "Visit https://crstn.org",
+        "Select 'Apply for Death Certificate'",
+        "Enter deceased person's name, date, and place of death",
+        "Provide informant's (family member's) details",
+        "Upload hospital death summary or doctor's certificate",
+        "Submit application and pay fee",
+        "Download or collect certificate from local office"
+      ],
+      "steps_ta": [
+        "https://crstn.org திறக்கவும்",
+        "'இறப்புச் சான்றிதழுக்கு விண்ணப்பிக்கவும்' தேர்வு செய்யவும்",
+        "மறைந்தவரின் பெயர், தேதி மற்றும் இடத்தை உள்ளிடவும்",
+        "தகவல் வழங்குபவர் (குடும்பத்தினர்) விவரங்களை நிரப்பவும்",
+        "மருத்துவமனை இறப்பு சுருக்கம் அல்லது மருத்துவர் சான்றிதழ் பதிவேற்றவும்",
+        "விண்ணப்பம் சமர்ப்பித்து கட்டணம் செலுத்தவும்",
+        "சான்றிதழை பதிவிறக்கம் செய்யவும் அல்லது உள்ளூர் அலுவலகத்தில் பெறவும்"
+      ],
+      "documents_en": [
+        "Hospital death certificate / Doctor's certificate",
+        "Deceased's Aadhaar Card",
+        "Applicant's Aadhaar Card",
+        "Ration Card"
+      ],
+      "documents_ta": [
+        "மருத்துவமனை இறப்பு சான்றிதழ் / மருத்துவர் சான்றிதழ்",
+        "மறைந்தவரின் ஆதார் அட்டை",
+        "விண்ணப்பதாரரின் ஆதார் அட்டை",
+        "ரேஷன் கார்டு"
+      ],
+      "fee_en": "Rs. 10–50",
+      "processing_time_en": "1–7 working days",
+      "validity_en": "Lifetime"
+    },
+    {
+      "id": "marriage-certificate",
+      "category": "Civil Registration",
+      "name_en": "Marriage Certificate",
+      "name_ta": "திருமண சான்றிதழ்",
+      "description_en": "Legal certificate confirming a marriage, required for passport, visa, name change, and joint property ownership.",
+      "description_ta": "திருமணத்தை உறுதிப்படுத்தும் சட்டப்பூர்வ சான்றிதழ், பாஸ்போர்ட், விசா மற்றும் சொத்து உரிமைக்கு தேவை.",
+      "portal": "https://tnreginet.gov.in",
+      "legal_en": "Registered under the Hindu Marriage Act, 1955 or the Special Marriage Act, 1954.",
+      "legal_ta": "இந்து திருமண சட்டம், 1955 அல்லது சிறப்பு திருமண சட்டம், 1954 இன் கீழ் பதிவு செய்யப்படுகிறது.",
+      "issuing_authority_en": "Sub-Registrar Office / Registrar of Marriages",
+      "issuing_authority_ta": "உப-பதிவாளர் அலுவலகம் / திருமண பதிவாளர்",
+      "steps_en": [
+        "Visit https://tnreginet.gov.in (Tamil Nadu Registration Dept)",
+        "Click on 'Marriage Registration'",
+        "Fill the joint application form with both spouses' details",
+        "Select date and Sub-Registrar office for appointment",
+        "Upload required documents",
+        "Pay registration fee online",
+        "Appear at the Sub-Registrar office on appointment date with two witnesses",
+        "Sign the register and receive the Marriage Certificate"
+      ],
+      "steps_ta": [
+        "https://tnreginet.gov.in திறக்கவும்",
+        "'திருமண பதிவு' என்பதை கிளிக் செய்யவும்",
+        "இரு துணைவர்களின் விவரங்களுடன் கூட்டு விண்ணப்பப் படிவத்தை நிரப்பவும்",
+        "தேதி மற்றும் உப-பதிவாளர் அலுவலகத்தை தேர்வு செய்யவும்",
+        "தேவையான ஆவணங்களை பதிவேற்றவும்",
+        "பதிவு கட்டணத்தை ஆன்லைனில் செலுத்தவும்",
+        "நியமிக்கப்பட்ட தேதியில் இரண்டு சாட்சிகளுடன் உப-பதிவாளர் அலுவலகத்திற்கு செல்லவும்",
+        "பதிவேட்டில் கையொப்பமிட்டு திருமண சான்றிதழ் பெறவும்"
+      ],
+      "documents_en": [
+        "Aadhaar Card of both spouses",
+        "Age proof of both spouses (Birth Certificate / Matriculation Certificate)",
+        "Address proof",
+        "Two passport-size photographs each",
+        "Two witnesses with Aadhaar Cards",
+        "Invitation card or religious certificate (for existing marriages)"
+      ],
+      "documents_ta": [
+        "இரு துணைவர்களின் ஆதார் அட்டை",
+        "வயது சான்று (பிறப்புச் சான்றிதழ் / மெட்ரிக் சான்றிதழ்)",
+        "முகவரி சான்று",
+        "ஒவ்வொருவரும் இரண்டு பாஸ்போர்ட் புகைப்படங்கள்",
+        "ஆதார் கார்டுடன் இரண்டு சாட்சிகள்",
+        "அழைப்பிதழ் அல்லது மத சான்றிதழ் (நடந்த திருமணங்களுக்கு)"
+      ],
+      "fee_en": "Rs. 100–200 (varies by act and office)",
+      "processing_time_en": "Same day (if appointment available)",
+      "validity_en": "Lifetime"
+    },
+    {
+      "id": "aadhaar-card",
+      "category": "National Identity",
+      "name_en": "Aadhaar Card",
+      "name_ta": "ஆதார் அட்டை",
+      "description_en": "12-digit unique identity number issued by UIDAI, used as a universal identity and address proof across India.",
+      "description_ta": "UIDAI வழங்கும் 12 இலக்க தனித்துவ அடையாள எண், இந்தியாவில் அனைத்து சேவைகளுக்கும் அடையாளமாக பயன்படுகிறது.",
+      "portal": "https://myaadhaar.uidai.gov.in",
+      "legal_en": "Issued by Unique Identification Authority of India (UIDAI) under the Aadhaar Act, 2016.",
+      "legal_ta": "ஆதார் சட்டம், 2016 இன் கீழ் UIDAI வழங்குகிறது.",
+      "issuing_authority_en": "Unique Identification Authority of India (UIDAI)",
+      "issuing_authority_ta": "தனிப்பட்ட அடையாள ஆணையம் (UIDAI)",
+      "steps_en": [
+        "Visit https://myaadhaar.uidai.gov.in or go to nearest Aadhaar Enrolment Centre",
+        "For new enrolment: fill the enrolment form with demographic details",
+        "Provide biometric data (fingerprints, iris scan, photograph) at the centre",
+        "Collect acknowledgement slip with Enrolment ID",
+        "Track status at https://myaadhaar.uidai.gov.in using Enrolment ID",
+        "Aadhaar will be delivered by post in 90 days or downloadable online",
+        "For updates: log in at https://myaadhaar.uidai.gov.in → Update Aadhaar"
+      ],
+      "steps_ta": [
+        "https://myaadhaar.uidai.gov.in திறக்கவும் அல்லது அருகிலுள்ள ஆதார் பதிவு மையத்திற்கு செல்லவும்",
+        "புதிய பதிவுக்கு: ஜனசபை விவரங்களுடன் படிவத்தை நிரப்பவும்",
+        "மையத்தில் பயோமெட்ரிக் தரவு வழங்கவும் (கைரேகை, கண்ணீரி ஸ்கேன், புகைப்படம்)",
+        "பதிவு ஐடியுடன் ஒப்புதல் ரசீது பெறவும்",
+        "பதிவு ஐடி மூலம் நிலையை கண்காணிக்கவும்",
+        "90 நாட்களில் தபால் மூலம் வரும் அல்லது ஆன்லைனில் பதிவிறக்கம் செய்யலாம்",
+        "புதுப்பிப்புக்கு: https://myaadhaar.uidai.gov.in → ஆதார் புதுப்பி என்பதை பயன்படுத்தவும்"
+      ],
+      "documents_en": [
+        "Any one identity proof: Voter ID / Passport / Ration Card / Driving License",
+        "Any one address proof: Ration Card / Electricity bill / Bank passbook",
+        "Date of birth proof: Birth Certificate / School certificate / PAN Card"
+      ],
+      "documents_ta": [
+        "ஒரு அடையாள சான்று: வாக்காளர் அட்டை / பாஸ்போர்ட் / ரேஷன் கார்டு / ஓட்டுநர் உரிமம்",
+        "ஒரு முகவரி சான்று: ரேஷன் கார்டு / மின்சார கட்டண ரசீது / வங்கி பாஸ்புக்",
+        "வயது சான்று: பிறப்புச் சான்றிதழ் / பள்ளி சான்றிதழ் / PAN கார்டு"
+      ],
+      "fee_en": "Free (new enrolment); Rs. 50 for updates",
+      "processing_time_en": "Up to 90 days for new card",
+      "validity_en": "Lifetime (biometric update required every 10 years for children)"
+    },
+    {
+      "id": "pan-card",
+      "category": "National Identity",
+      "name_en": "PAN Card",
+      "name_ta": "PAN கார்டு",
+      "description_en": "Permanent Account Number card issued by Income Tax Department, mandatory for financial transactions, tax filing, and opening bank accounts.",
+      "description_ta": "வருமான வரி துறை வழங்கும் நிரந்தர கணக்கு எண் அட்டை, வங்கி கணக்கு, நிதி பரிவர்த்தனை மற்றும் வரி தாக்கலுக்கு கட்டாயம்.",
+      "portal": "https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html",
+      "legal_en": "Issued by the Income Tax Department under the Income Tax Act, 1961.",
+      "legal_ta": "வருமான வரி சட்டம், 1961 இன் கீழ் வருமான வரி துறை வழங்குகிறது.",
+      "issuing_authority_en": "Income Tax Department (via NSDL / UTIITSL)",
+      "issuing_authority_ta": "வருமான வரி துறை (NSDL / UTIITSL மூலம்)",
+      "steps_en": [
+        "Visit https://www.onlineservices.nsdl.com or https://www.pan.utiitsl.com",
+        "Click 'Apply for New PAN (Form 49A)' for Indian citizens",
+        "Fill the online form with personal, contact, and income details",
+        "Upload photograph and signature",
+        "Upload identity, address, and date of birth proof",
+        "Pay the fee online (Rs. 107 for Indian address)",
+        "Submit and note the acknowledgement number",
+        "Physical PAN card will be dispatched to address in 15–20 days",
+        "Instant e-PAN available via Aadhaar at https://www.incometax.gov.in"
+      ],
+      "steps_ta": [
+        "https://www.onlineservices.nsdl.com அல்லது https://www.pan.utiitsl.com திறக்கவும்",
+        "இந்தியர்களுக்கு 'புதிய PAN விண்ணப்பம் (படிவம் 49A)' கிளிக் செய்யவும்",
+        "தனிப்பட்ட, தொடர்பு மற்றும் வருமான விவரங்களை நிரப்பவும்",
+        "புகைப்படம் மற்றும் கையொப்பம் பதிவேற்றவும்",
+        "அடையாள, முகவரி மற்றும் வயது சான்று பதிவேற்றவும்",
+        "கட்டணம் ஆன்லைனில் செலுத்தவும் (இந்திய முகவரிக்கு Rs. 107)",
+        "சமர்ப்பித்து ஒப்புதல் எண் குறித்துக்கொள்ளவும்",
+        "15–20 நாட்களில் முகவரிக்கு PAN கார்டு வரும்",
+        "உடனடி e-PAN: https://www.incometax.gov.in இல் ஆதார் மூலம் பெறலாம்"
+      ],
+      "documents_en": [
+        "Identity proof: Aadhaar / Voter ID / Passport",
+        "Address proof: Aadhaar / Utility bill / Bank statement",
+        "Date of birth proof: Birth Certificate / Matriculation certificate",
+        "Passport-size photograph",
+        "Signature"
+      ],
+      "documents_ta": [
+        "அடையாள சான்று: ஆதார் / வாக்காளர் அட்டை / பாஸ்போர்ட்",
+        "முகவரி சான்று: ஆதார் / மின்சார கட்டண ரசீது / வங்கி அறிக்கை",
+        "வயது சான்று: பிறப்புச் சான்றிதழ் / மெட்ரிக் சான்றிதழ்",
+        "பாஸ்போர்ட் அளவு புகைப்படம்",
+        "கையொப்பம்"
+      ],
+      "fee_en": "Rs. 107 (physical card to Indian address); Free for instant e-PAN via Aadhaar",
+      "processing_time_en": "15–20 working days for physical card; instant for e-PAN",
+      "validity_en": "Lifetime"
+    },
+    {
+      "id": "voter-id",
+      "category": "National Identity",
+      "name_en": "Voter ID Card (EPIC)",
+      "name_ta": "வாக்காளர் அடையாள அட்டை (EPIC)",
+      "description_en": "Electoral Photo Identity Card issued by Election Commission of India, required for voting and used as identity proof.",
+      "description_ta": "இந்திய தேர்தல் ஆணையம் வழங்கும் வாக்காளர் அடையாள புகைப்பட அட்டை, வாக்களிக்கவும் அடையாள சான்றாகவும் பயன்படுகிறது.",
+      "portal": "https://voters.eci.gov.in",
+      "legal_en": "Issued by Election Commission of India under the Representation of the People Act, 1950.",
+      "legal_ta": "மக்கள் பிரதிநிதித்துவ சட்டம், 1950 இன் கீழ் இந்திய தேர்தல் ஆணையம் வழங்குகிறது.",
+      "issuing_authority_en": "Election Commission of India",
+      "issuing_authority_ta": "இந்திய தேர்தல் ஆணையம்",
+      "steps_en": [
+        "Visit https://voters.eci.gov.in",
+        "Click 'New Registration (Form 6)' for first-time voters",
+        "Fill personal details, constituency, and address",
+        "Upload photograph and required documents",
+        "Submit the form",
+        "Electoral Roll Officer verifies and approves",
+        "EPIC card will be dispatched by post or downloadable as e-EPIC"
+      ],
+      "steps_ta": [
+        "https://voters.eci.gov.in திறக்கவும்",
+        "புதிய வாக்காளர்களுக்கு 'புதிய பதிவு (படிவம் 6)' கிளிக் செய்யவும்",
+        "தனிப்பட்ட விவரங்கள், தொகுதி மற்றும் முகவரி நிரப்பவும்",
+        "புகைப்படம் மற்றும் ஆவணங்களை பதிவேற்றவும்",
+        "படிவத்தை சமர்ப்பிக்கவும்",
+        "தேர்தல் பட்டியல் அலுவலர் சரிபார்த்து அனுமதி வழங்குவார்",
+        "EPIC அட்டை தபால் மூலம் வரும் அல்லது e-EPIC பதிவிறக்கம் செய்யலாம்"
+      ],
+      "documents_en": [
+        "Age proof: Birth Certificate / Matriculation Certificate / Aadhaar",
+        "Address proof: Aadhaar / Ration Card / Utility bill",
+        "Recent passport-size photograph"
+      ],
+      "documents_ta": [
+        "வயது சான்று: பிறப்புச் சான்றிதழ் / மெட்ரிக் சான்றிதழ் / ஆதார்",
+        "முகவரி சான்று: ஆதார் / ரேஷன் கார்டு / மின்சார கட்டண ரசீது",
+        "சமீபத்திய பாஸ்போர்ட் அளவு புகைப்படம்"
+      ],
+      "fee_en": "Free",
+      "processing_time_en": "30–45 days",
+      "validity_en": "Lifetime (address change requires update)"
+    },
+    {
+      "id": "driving-license",
+      "category": "Transport",
+      "name_en": "Driving License",
+      "name_ta": "ஓட்டுநர் உரிமம்",
+      "description_en": "Official license authorizing a person to drive motor vehicles on public roads in India.",
+      "description_ta": "இந்தியாவில் பொது சாலைகளில் மோட்டார் வாகனங்களை ஓட்ட அனுமதிக்கும் அதிகாரப்பூர்வ உரிமம்.",
+      "portal": "https://parivahan.gov.in",
+      "legal_en": "Issued under the Motor Vehicles Act, 1988 by the Regional Transport Office.",
+      "legal_ta": "மோட்டார் வாகனச் சட்டம், 1988 இன் கீழ் பிராந்திய போக்குவரத்து அலுவலகம் வழங்குகிறது.",
+      "issuing_authority_en": "Regional Transport Office (RTO)",
+      "issuing_authority_ta": "பிராந்திய போக்குவரத்து அலுவலகம் (RTO)",
+      "steps_en": [
+        "Visit https://parivahan.gov.in",
+        "Select 'Driving Licence' → 'Apply for Learner's Licence'",
+        "Fill the application form (LL) with personal and vehicle category details",
+        "Upload documents and photograph",
+        "Pay fee online and book a slot for the Learning Licence Test",
+        "Pass the online Learner's Licence test at the RTO",
+        "After 30 days with LL, apply for Permanent Driving Licence at https://parivahan.gov.in",
+        "Book appointment for the driving skill test at RTO",
+        "Pass the driving test; DL will be issued and mailed within 7–15 days"
+      ],
+      "steps_ta": [
+        "https://parivahan.gov.in திறக்கவும்",
+        "'ஓட்டுநர் உரிமம்' → 'கற்றல் உரிமத்திற்கு விண்ணப்பிக்கவும்' தேர்வு செய்யவும்",
+        "LL விண்ணப்பப் படிவத்தை நிரப்பவும்",
+        "ஆவணங்கள் மற்றும் புகைப்படம் பதிவேற்றவும்",
+        "கட்டணம் செலுத்தி கற்றல் உரிம தேர்வுக்கு நேரம் முன்பதிவு செய்யவும்",
+        "RTO இல் ஆன்லைன் கற்றல் உரிம தேர்வில் தேர்ச்சி பெறவும்",
+        "LL வைத்து 30 நாட்களுக்கு பிறகு நிரந்தர ஓட்டுநர் உரிமத்திற்கு விண்ணப்பிக்கவும்",
+        "RTO இல் ஓட்டுநர் திறன் சோதனைக்கு நேரம் முன்பதிவு செய்யவும்",
+        "சோதனையில் தேர்ச்சி பெறவும்; 7–15 நாட்களில் DL தபால் மூலம் வரும்"
+      ],
+      "documents_en": [
+        "Aadhaar Card",
+        "Age proof: Birth Certificate / School certificate",
+        "Address proof: Aadhaar / Ration Card",
+        "Passport-size photographs (4 copies)",
+        "Medical certificate (Form 1A for commercial vehicles)",
+        "Existing Learner's Licence (for permanent DL application)"
+      ],
+      "documents_ta": [
+        "ஆதார் அட்டை",
+        "வயது சான்று: பிறப்புச் சான்றிதழ் / பள்ளி சான்றிதழ்",
+        "முகவரி சான்று: ஆதார் / ரேஷன் கார்டு",
+        "பாஸ்போர்ட் அளவு புகைப்படங்கள் (4 நகல்கள்)",
+        "மருத்துவ சான்றிதழ் (வணிக வாகனங்களுக்கு படிவம் 1A)",
+        "தற்போதைய கற்றல் உரிமம் (நிரந்தர DL விண்ணப்பத்திற்கு)"
+      ],
+      "fee_en": "Rs. 200 (LL) + Rs. 200 (DL) approximately",
+      "processing_time_en": "LL: Same day; DL: 7–15 days after test",
+      "validity_en": "20 years or until age 50 (whichever is earlier); renewable thereafter"
+    },
+    {
+      "id": "passport",
+      "category": "Travel",
+      "name_en": "Passport",
+      "name_ta": "பாஸ்போர்ட்",
+      "description_en": "International travel document issued by the Government of India, required for international travel and used as identity proof.",
+      "description_ta": "இந்திய அரசு வழங்கும் சர்வதேச பயண ஆவணம், சர்வதேச பயணம் மற்றும் அடையாள சான்றாக பயன்படுகிறது.",
+      "portal": "https://www.passportindia.gov.in",
+      "legal_en": "Issued by the Ministry of External Affairs under the Passports Act, 1967.",
+      "legal_ta": "பாஸ்போர்ட்கள் சட்டம், 1967 இன் கீழ் வெளிவிவகார அமைச்சகம் வழங்குகிறது.",
+      "issuing_authority_en": "Passport Seva Kendra (PSK) / Post Office Passport Seva Kendra (POPSK)",
+      "issuing_authority_ta": "பாஸ்போர்ட் சேவா கேந்திரா (PSK) / அஞ்சல் அலுவலக பாஸ்போர்ட் சேவா கேந்திரா (POPSK)",
+      "steps_en": [
+        "Register at https://www.passportindia.gov.in",
+        "Log in and select 'Apply for Fresh Passport'",
+        "Fill Form DS-1 with personal details, family info, and address",
+        "Select nearest PSK/POPSK and book an appointment",
+        "Pay the fee online",
+        "Visit PSK/POPSK on appointment date with original documents",
+        "Complete biometric capture (photo and fingerprints) at PSK",
+        "Police verification will be initiated (post-visit)",
+        "Passport dispatched by Speed Post after verification; track at the portal"
+      ],
+      "steps_ta": [
+        "https://www.passportindia.gov.in இல் பதிவு செய்யவும்",
+        "உள்நுழைந்து 'புதிய பாஸ்போர்டுக்கு விண்ணப்பிக்கவும்' தேர்வு செய்யவும்",
+        "படிவம் DS-1 ஐ தனிப்பட்ட, குடும்ப மற்றும் முகவரி விவரங்களுடன் நிரப்பவும்",
+        "அருகிலுள்ள PSK/POPSK தேர்வு செய்து நேரம் முன்பதிவு செய்யவும்",
+        "கட்டணத்தை ஆன்லைனில் செலுத்தவும்",
+        "நியமிக்கப்பட்ட தேதியில் அசல் ஆவணங்களுடன் PSK செல்லவும்",
+        "PSK இல் பயோமெட்ரிக் தரவு (புகைப்படம் மற்றும் கைரேகை) வழங்கவும்",
+        "போலீஸ் சரிபார்ப்பு தொடங்கும்",
+        "சரிபார்ப்பிற்கு பிறகு ஸ்பீட் போஸ்ட் மூலம் பாஸ்போர்ட் வரும்; போர்ட்டலில் கண்காணிக்கவும்"
+      ],
+      "documents_en": [
+        "Aadhaar Card",
+        "Date of birth proof: Birth Certificate / Matriculation Certificate",
+        "Address proof: Aadhaar / Ration Card / Utility bill",
+        "Non-ECR documents (if applicable): Educational certificate",
+        "Old passport (for renewal)"
+      ],
+      "documents_ta": [
+        "ஆதார் அட்டை",
+        "வயது சான்று: பிறப்புச் சான்றிதழ் / மெட்ரிக் சான்றிதழ்",
+        "முகவரி சான்று: ஆதார் / ரேஷன் கார்டு / மின்சார கட்டண ரசீது",
+        "Non-ECR ஆவணங்கள் (பொருந்தினால்): கல்வி சான்றிதழ்",
+        "பழைய பாஸ்போர்ட் (புதுப்பிப்புக்கு)"
+      ],
+      "fee_en": "Rs. 1500 (36 pages, 10 year validity); Rs. 2000 (60 pages); Rs. 3000 (tatkaal)",
+      "processing_time_en": "15–30 days (normal); 7–14 days (tatkaal)",
+      "validity_en": "10 years for adults; 5 years for minors"
+    },
+    {
+      "id": "ration-card",
+      "category": "State Welfare",
+      "name_en": "Smart Family Card (Ration Card)",
+      "name_ta": "ஸ்மார்ட் குடும்ப அட்டை (ரேஷன் கார்டு)",
+      "description_en": "Card issued by Tamil Nadu Civil Supplies Corporation entitling families to subsidised food grains and essential commodities under PDS.",
+      "description_ta": "பொது விநியோக முறையின் கீழ் மானிய அரிசி மற்றும் அத்தியாவசிய பொருட்கள் பெற தமிழ்நாடு சிவில் சப்ளைஸ் கார்ப்பரேஷன் வழங்கும் அட்டை.",
+      "portal": "https://www.tnpds.gov.in",
+      "legal_en": "Issued under the National Food Security Act, 2013 and Tamil Nadu state orders.",
+      "legal_ta": "தேசிய உணவு பாதுகாப்பு சட்டம், 2013 மற்றும் தமிழ்நாடு அரசு ஆணைகளின் கீழ் வழங்கப்படுகிறது.",
+      "issuing_authority_en": "Tamil Nadu Civil Supplies and Consumer Protection Department",
+      "issuing_authority_ta": "தமிழ்நாடு சிவில் சப்ளைஸ் மற்றும் நுகர்வோர் பாதுகாப்பு துறை",
+      "steps_en": [
+        "Visit https://www.tnpds.gov.in",
+        "Click 'New Card Application'",
+        "Select card type (PHH / NPHH / AAY) based on income",
+        "Fill in head of family and all member details",
+        "Upload required documents",
+        "Submit application and note the reference number",
+        "Tahsildar / Inspector verifies the application on field",
+        "Smart Family Card issued and mailed or collected from the ration shop"
+      ],
+      "steps_ta": [
+        "https://www.tnpds.gov.in திறக்கவும்",
+        "'புதிய கார்டு விண்ணப்பம்' கிளிக் செய்யவும்",
+        "வருமானத்தின் அடிப்படையில் அட்டை வகை தேர்வு செய்யவும் (PHH / NPHH / AAY)",
+        "குடும்பத்தலைவர் மற்றும் உறுப்பினர்களின் விவரங்களை நிரப்பவும்",
+        "தேவையான ஆவணங்களை பதிவேற்றவும்",
+        "விண்ணப்பம் சமர்ப்பித்து Reference Number குறித்துக்கொள்ளவும்",
+        "தாசில்தார் / இன்ஸ்பெக்டர் விண்ணப்பத்தை சரிபார்ப்பார்",
+        "ஸ்மார்ட் குடும்ப அட்டை வழங்கப்படும்"
+      ],
+      "documents_en": [
+        "Aadhaar Cards of all family members",
+        "Address proof (Electricity / Water bill)",
+        "Income proof (for PHH/AAY category)",
+        "Surrender certificate from previous ration card (if applicable)"
+      ],
+      "documents_ta": [
+        "அனைத்து குடும்ப உறுப்பினர்களின் ஆதார் அட்டை",
+        "முகவரி சான்று (மின்சார / தண்ணீர் கட்டண ரசீது)",
+        "வருமான சான்று (PHH / AAY வகுப்புக்கு)",
+        "முந்தைய ரேஷன் கார்டு சரண்டர் சான்றிதழ் (பொருந்தினால்)"
+      ],
+      "fee_en": "Free",
+      "processing_time_en": "30–60 days",
+      "validity_en": "5 years (renewable)"
+    },
+    {
+      "id": "caste-certificate",
+      "category": "State Certificate",
+      "name_en": "Caste Certificate (SC/ST/OBC)",
+      "name_ta": "ஜாதிச் சான்றிதழ் (SC/ST/OBC)",
+      "description_en": "Certificate confirming Scheduled Caste, Scheduled Tribe, or Other Backward Class status for availing government reservations.",
+      "description_ta": "அரசு இட ஒதுக்கீடு பெற SC, ST அல்லது OBC நிலையை உறுதிப்படுத்தும் சான்றிதழ்.",
+      "portal": "https://www.tnesevai.tn.gov.in",
+      "legal_en": "Issued by Tamil Nadu Government under the Constitution of India and relevant Tamil Nadu acts for reservation benefits.",
+      "legal_ta": "இட ஒதுக்கீடு பலன்களுக்கு இந்திய அரசியலமைப்பு மற்றும் தமிழ்நாடு சட்டங்களின் கீழ் வழங்கப்படுகிறது.",
+      "issuing_authority_en": "Tahsildar / District Collector",
+      "issuing_authority_ta": "தாசில்தார் / மாவட்ட ஆட்சியர்",
+      "steps_en": [
+        "Visit https://www.tnesevai.tn.gov.in",
+        "Log in or register",
+        "Navigate to Revenue Department → Caste Certificate",
+        "Fill the application with personal and caste details",
+        "Upload caste proof of parent or blood relative",
+        "Submit application and pay fee",
+        "Track status and collect/download certificate"
+      ],
+      "steps_ta": [
+        "https://www.tnesevai.tn.gov.in திறக்கவும்",
+        "உள்நுழையவும் அல்லது பதிவு செய்யவும்",
+        "வருவாய் துறை → ஜாதிச் சான்றிதழ் தேர்வு செய்யவும்",
+        "தனிப்பட்ட மற்றும் ஜாதி விவரங்களை நிரப்பவும்",
+        "பெற்றோர் அல்லது உறவினரின் ஜாதி சான்று பதிவேற்றவும்",
+        "விண்ணப்பம் சமர்ப்பித்து கட்டணம் செலுத்தவும்",
+        "நிலையை கண்காணித்து சான்றிதழை பெறவும் அல்லது பதிவிறக்கம் செய்யவும்"
+      ],
+      "documents_en": [
+        "Aadhaar Card",
+        "Ration Card",
+        "Caste certificate of parent / blood relative",
+        "School Transfer Certificate",
+        "Address proof"
+      ],
+      "documents_ta": [
+        "ஆதார் அட்டை",
+        "ரேஷன் கார்டு",
+        "பெற்றோர் / உறவினரின் ஜாதி சான்றிதழ்",
+        "பள்ளி இடமாற்று சான்றிதழ்",
+        "முகவரி சான்று"
+      ],
+      "fee_en": "Rs. 60 (approximate)",
+      "processing_time_en": "7–15 working days",
+      "validity_en": "Lifetime"
+    },
+    {
+      "id": "aadhaar-update",
+      "category": "National Identity",
+      "name_en": "Aadhaar Update / Correction",
+      "name_ta": "ஆதார் புதுப்பிப்பு / திருத்தம்",
+      "description_en": "Service to update or correct name, address, date of birth, mobile number, or email in Aadhaar records.",
+      "description_ta": "ஆதார் பதிவுகளில் பெயர், முகவரி, பிறந்த தேதி, மொபைல் நம்பர் அல்லது மின்னஞ்சல் திருத்த அல்லது புதுப்பிக்க சேவை.",
+      "portal": "https://myaadhaar.uidai.gov.in",
+      "legal_en": "Service provided by UIDAI under the Aadhaar Act, 2016.",
+      "legal_ta": "ஆதார் சட்டம், 2016 இன் கீழ் UIDAI வழங்கும் சேவை.",
+      "issuing_authority_en": "UIDAI / Aadhaar Enrolment Centre",
+      "issuing_authority_ta": "UIDAI / ஆதார் பதிவு மையம்",
+      "steps_en": [
+        "Visit https://myaadhaar.uidai.gov.in",
+        "Log in with Aadhaar number and OTP sent to registered mobile",
+        "Click 'Update Aadhaar' and select field to update (name / address / DOB)",
+        "For address update: update online with supporting address proof",
+        "For name/DOB update: visit nearest Aadhaar Enrolment Centre with original documents",
+        "Biometric authentication required at centre",
+        "Pay Rs. 50 update fee",
+        "Receive URN (Update Request Number) for tracking",
+        "Updated Aadhaar available in 30 days; download from portal"
+      ],
+      "steps_ta": [
+        "https://myaadhaar.uidai.gov.in திறக்கவும்",
+        "ஆதார் நம்பர் மற்றும் பதிவு மொபைலுக்கு வரும் OTP மூலம் உள்நுழையவும்",
+        "'ஆதார் புதுப்பி' கிளிக் செய்து புதுப்பிக்க வேண்டிய புலத்தை தேர்வு செய்யவும்",
+        "முகவரி புதுப்பிப்பு: முகவரி சான்றுடன் ஆன்லைனில் புதுப்பிக்கலாம்",
+        "பெயர்/பிறந்த தேதி புதுப்பிப்பு: அசல் ஆவணங்களுடன் ஆதார் பதிவு மையம் செல்லவும்",
+        "மையத்தில் பயோமெட்ரிக் சரிபார்ப்பு தேவை",
+        "Rs. 50 புதுப்பிப்பு கட்டணம் செலுத்தவும்",
+        "கண்காணிப்பிற்கு URN (புதுப்பிப்பு கோரிக்கை எண்) பெறவும்",
+        "30 நாட்களில் புதுப்பிக்கப்பட்ட ஆதார் போர்ட்டலில் பதிவிறக்கம் செய்யலாம்"
+      ],
+      "documents_en": [
+        "For address update: Utility bill / Ration Card / Bank passbook",
+        "For name update: Gazette notification / Marriage Certificate",
+        "For DOB update: Birth Certificate / School certificate"
+      ],
+      "documents_ta": [
+        "முகவரி புதுப்பிப்புக்கு: மின்சார கட்டண ரசீது / ரேஷன் கார்டு / வங்கி பாஸ்புக்",
+        "பெயர் புதுப்பிப்புக்கு: கெஜட் அறிவிப்பு / திருமண சான்றிதழ்",
+        "பிறந்த தேதி புதுப்பிப்புக்கு: பிறப்புச் சான்றிதழ் / பள்ளி சான்றிதழ்"
+      ],
+      "fee_en": "Rs. 50 per update request",
+      "processing_time_en": "Up to 30 working days",
+      "validity_en": "N/A (update service)"
+    },
+    {
+      "id": "land-records-patta",
+      "category": "Land & Property",
+      "name_en": "Patta / Chitta (Land Record)",
+      "name_ta": "பட்டா / சிட்டா (நில பதிவேடு)",
+      "description_en": "Official land ownership document issued by Tamil Nadu government showing title and extent of agricultural land.",
+      "description_ta": "விவசாய நிலத்தின் தலைப்பு மற்றும் விரிவைக் காட்டும் தமிழ்நாடு அரசு வழங்கும் அதிகாரப்பூர்வ நில உரிமை ஆவணம்.",
+      "portal": "https://eservices.tn.gov.in",
+      "legal_en": "Issued by Tamil Nadu Revenue Department under the Tamil Nadu Patta Pass Book Act, 1983.",
+      "legal_ta": "தமிழ்நாடு பட்டா பாஸ் புக் சட்டம், 1983 இன் கீழ் தமிழ்நாடு வருவாய் துறை வழங்குகிறது.",
+      "issuing_authority_en": "Village Administrative Officer / Tahsildar",
+      "issuing_authority_ta": "கிராம நிர்வாக அலுவலர் / தாசில்தார்",
+      "steps_en": [
+        "Visit https://eservices.tn.gov.in",
+        "Log in or register",
+        "Select 'View Patta and FMB / Chitta / Adangal'",
+        "Enter district, taluk, village, and survey number",
+        "View Patta details online",
+        "For certified copy: apply via TN eSevai portal at https://www.tnesevai.tn.gov.in",
+        "Pay fee and download or collect certified copy"
+      ],
+      "steps_ta": [
+        "https://eservices.tn.gov.in திறக்கவும்",
+        "உள்நுழையவும் அல்லது பதிவு செய்யவும்",
+        "'பட்டா மற்றும் FMB / சிட்டா / அடங்கல் பார்க்கவும்' தேர்வு செய்யவும்",
+        "மாவட்டம், தாலுகா, கிராமம் மற்றும் சர்வே எண் உள்ளிடவும்",
+        "பட்டா விவரங்களை ஆன்லைனில் பார்க்கவும்",
+        "சான்றளிக்கப்பட்ட நகலுக்கு: https://www.tnesevai.tn.gov.in மூலம் விண்ணப்பிக்கவும்",
+        "கட்டணம் செலுத்தி பதிவிறக்கம் செய்யவும் அல்லது பெறவும்"
+      ],
+      "documents_en": [
+        "Survey Number / Sub-division number",
+        "Applicant Aadhaar Card",
+        "Previous Patta document (for transfer)",
+        "Sale deed (for transfer application)"
+      ],
+      "documents_ta": [
+        "சர்வே எண் / உட்பிரிவு எண்",
+        "விண்ணப்பதாரர் ஆதார் அட்டை",
+        "முந்தைய பட்டா ஆவணம் (பரிமாற்றத்திற்கு)",
+        "விற்பனை பத்திரம் (பரிமாற்ற விண்ணப்பத்திற்கு)"
+      ],
+      "fee_en": "Free for online view; Rs. 30–100 for certified copy",
+      "processing_time_en": "Instant (online view); 7–15 days (certified copy)",
+      "validity_en": "Valid until next land transaction"
+    },
+    {
+      "id": "encumbrance-certificate",
+      "category": "Land & Property",
+      "name_en": "Encumbrance Certificate (EC)",
+      "name_ta": "இல்லை சுமை சான்றிதழ் (EC)",
+      "description_en": "Certificate showing that a property is free from any legal dues, mortgages or liabilities. Required for property sale, purchase, and bank loans.",
+      "description_ta": "ஒரு சொத்தில் எந்த சட்டப்பூர்வ நிலுவை, அடமானம் அல்லது பொறுப்புகளும் இல்லை என்பதை காட்டும் சான்றிதழ். சொத்து விற்பனை, வாங்குதல் மற்றும் வங்கி கடனுக்கு தேவை.",
+      "portal": "https://tnreginet.gov.in",
+      "legal_en": "Issued by Tamil Nadu Registration Department.",
+      "legal_ta": "தமிழ்நாடு பதிவு துறை வழங்குகிறது.",
+      "issuing_authority_en": "Sub-Registrar Office",
+      "issuing_authority_ta": "உப-பதிவாளர் அலுவலகம்",
+      "steps_en": [
+        "Visit https://tnreginet.gov.in",
+        "Select 'Encumbrance Certificate' under services",
+        "Enter property details: district, sub-registrar office, survey number, door number",
+        "Select the time period for which EC is required",
+        "Pay the prescribed fee online",
+        "Download EC directly if available; else collect from Sub-Registrar office"
+      ],
+      "steps_ta": [
+        "https://tnreginet.gov.in திறக்கவும்",
+        "சேவைகளில் 'இல்லை சுமை சான்றிதழ்' தேர்வு செய்யவும்",
+        "சொத்து விவரங்களை உள்ளிடவும்: மாவட்டம், உப-பதிவாளர் அலுவலகம், சர்வே எண், வாசல் எண்",
+        "EC தேவைப்படும் காலகட்டத்தை தேர்வு செய்யவும்",
+        "நிர்ணயிக்கப்பட்ட கட்டணம் ஆன்லைனில் செலுத்தவும்",
+        "கிடைத்தால் EC நேரடியாக பதிவிறக்கம் செய்யவும்; இல்லையேல் உப-பதிவாளர் அலுவலகத்தில் பெறவும்"
+      ],
+      "documents_en": [
+        "Property address / Survey number",
+        "Applicant's ID proof"
+      ],
+      "documents_ta": [
+        "சொத்து முகவரி / சர்வே எண்",
+        "விண்ணப்பதாரரின் அடையாள சான்று"
+      ],
+      "fee_en": "Rs. 30 per year (max Rs. 500)",
+      "processing_time_en": "Same day to 3 working days",
+      "validity_en": "Valid for 30 days from date of issue (bank requirement)"
+    },
+    {
+      "id": "vehicle-rc",
+      "category": "Transport",
+      "name_en": "Vehicle Registration Certificate (RC)",
+      "name_ta": "வாகன பதிவு சான்றிதழ் (RC)",
+      "description_en": "Certificate of registration for motor vehicles, required to drive the vehicle legally on public roads.",
+      "description_ta": "மோட்டார் வாகனங்களுக்கான பதிவு சான்றிதழ், பொது சாலைகளில் சட்டப்பூர்வமாக வாகனம் ஓட்ட தேவை.",
+      "portal": "https://parivahan.gov.in",
+      "legal_en": "Issued by RTO under the Motor Vehicles Act, 1988.",
+      "legal_ta": "மோட்டார் வாகனச் சட்டம், 1988 இன் கீழ் RTO வழங்குகிறது.",
+      "issuing_authority_en": "Regional Transport Office (RTO)",
+      "issuing_authority_ta": "பிராந்திய போக்குவரத்து அலுவலகம் (RTO)",
+      "steps_en": [
+        "New vehicles: Dealer registers vehicle on your behalf at time of purchase",
+        "For RC transfer: Visit https://parivahan.gov.in → Vehicle Registration",
+        "Submit Form 29 (Notice of Transfer) and Form 30 (Application for Transfer)",
+        "Pay applicable fees online",
+        "RTO processes and issues updated RC",
+        "For duplicate RC or address change: apply via https://parivahan.gov.in"
+      ],
+      "steps_ta": [
+        "புதிய வாகனங்கள்: வாங்கும் நேரத்தில் டீலர் உங்கள் சார்பில் வாகனத்தை பதிவு செய்வார்",
+        "RC பரிமாற்றத்திற்கு: https://parivahan.gov.in → வாகன பதிவு செல்லவும்",
+        "படிவம் 29 (பரிமாற்ற அறிவிப்பு) மற்றும் படிவம் 30 (பரிமாற்றத்திற்கான விண்ணப்பம்) சமர்ப்பிக்கவும்",
+        "பொருந்தும் கட்டணங்களை ஆன்லைனில் செலுத்தவும்",
+        "RTO செயலாக்கி புதுப்பிக்கப்பட்ட RC வழங்கும்",
+        "நகல் RC அல்லது முகவரி மாற்றத்திற்கு: https://parivahan.gov.in மூலம் விண்ணப்பிக்கவும்"
+      ],
+      "documents_en": [
+        "Vehicle purchase invoice",
+        "Insurance certificate",
+        "Pollution Under Control (PUC) certificate",
+        "Owner's Aadhaar Card",
+        "Address proof",
+        "Form 20 (Application for registration)"
+      ],
+      "documents_ta": [
+        "வாகன கொள்முதல் விலைப்பட்டியல்",
+        "காப்பீட்டு சான்றிதழ்",
+        "மாசு கட்டுப்பாடு (PUC) சான்றிதழ்",
+        "உரிமையாளரின் ஆதார் அட்டை",
+        "முகவரி சான்று",
+        "படிவம் 20 (பதிவுக்கான விண்ணப்பம்)"
+      ],
+      "fee_en": "Varies by vehicle type and state",
+      "processing_time_en": "7–30 days",
+      "validity_en": "15 years (private vehicles); renewal every 5 years after that"
+    },
+    {
+      "id": "legal-heir-certificate",
+      "category": "Legal",
+      "name_en": "Legal Heir Certificate",
+      "name_ta": "சட்டப்பூர்வ வாரிசு சான்றிதழ்",
+      "description_en": "Certificate identifying the legal heirs of a deceased person, required for claiming insurance, pension, and property inheritance.",
+      "description_ta": "காப்பீடு, ஓய்வூதியம் மற்றும் சொத்து வாரிசுரிமை கோரிக்கைக்கு மறைந்தவரின் சட்டப்பூர்வ வாரிசுகளை அடையாளப்படுத்தும் சான்றிதழ்.",
+      "portal": "https://www.tnesevai.tn.gov.in",
+      "legal_en": "Issued by Tamil Nadu Revenue Department.",
+      "legal_ta": "தமிழ்நாடு வருவாய் துறை வழங்குகிறது.",
+      "issuing_authority_en": "Tahsildar / Revenue Divisional Officer",
+      "issuing_authority_ta": "தாசில்தார் / வருவாய் கோட்ட அலுவலர்",
+      "steps_en": [
+        "Visit https://www.tnesevai.tn.gov.in",
+        "Log in or register",
+        "Select Revenue Department → Legal Heir Certificate",
+        "Fill in details of deceased and all surviving family members",
+        "Upload death certificate of deceased and Aadhaar of all heirs",
+        "Pay fee and submit application",
+        "Tahsildar verifies through field enquiry",
+        "Certificate issued and available for download or pickup"
+      ],
+      "steps_ta": [
+        "https://www.tnesevai.tn.gov.in திறக்கவும்",
+        "உள்நுழையவும் அல்லது பதிவு செய்யவும்",
+        "வருவாய் துறை → சட்டப்பூர்வ வாரிசு சான்றிதழ் தேர்வு செய்யவும்",
+        "மறைந்தவர் மற்றும் உயிரோடுள்ள குடும்ப உறுப்பினர்களின் விவரங்களை நிரப்பவும்",
+        "மறைந்தவரின் இறப்புச் சான்றிதழ் மற்றும் அனைத்து வாரிசுகளின் ஆதார் பதிவேற்றவும்",
+        "கட்டணம் செலுத்தி விண்ணப்பம் சமர்ப்பிக்கவும்",
+        "தாசில்தார் கள விசாரணை மூலம் சரிபார்ப்பார்",
+        "சான்றிதழ் வழங்கப்படும்; பதிவிறக்கம் அல்லது பெறலாம்"
+      ],
+      "documents_en": [
+        "Death certificate of deceased",
+        "Aadhaar Cards of all legal heirs",
+        "Ration Card",
+        "Address proof",
+        "Affidavit (if required)"
+      ],
+      "documents_ta": [
+        "மறைந்தவரின் இறப்புச் சான்றிதழ்",
+        "அனைத்து சட்டப்பூர்வ வாரிசுகளின் ஆதார் அட்டை",
+        "ரேஷன் கார்டு",
+        "முகவரி சான்று",
+        "உறுதிமொழி (தேவைப்பட்டால்)"
+      ],
+      "fee_en": "Rs. 60 (approximate)",
+      "processing_time_en": "15–30 working days",
+      "validity_en": "Lifetime"
+    },
+    {
+      "id": "senior-citizen-card",
+      "category": "State Welfare",
+      "name_en": "Senior Citizen Card",
+      "name_ta": "மூத்த குடிமக்கள் அட்டை",
+      "description_en": "Card issued to citizens aged 60 and above entitling them to concessions in transport, medical services, and other government benefits.",
+      "description_ta": "60 வயது மற்றும் அதற்கு மேலானவர்களுக்கு போக்குவரத்து, மருத்துவ சேவைகள் மற்றும் பிற அரசு சலுகைகளுக்கு வழங்கப்படும் அட்டை.",
+      "portal": "https://www.tnesevai.tn.gov.in",
+      "legal_en": "Issued by Tamil Nadu Social Welfare Department under National Policy for Senior Citizens.",
+      "legal_ta": "மூத்த குடிமக்களுக்கான தேசிய கொள்கையின் கீழ் தமிழ்நாடு சமூக நலத்துறை வழங்குகிறது.",
+      "issuing_authority_en": "Department of Social Defence / District Social Welfare Office",
+      "issuing_authority_ta": "சமூக தற்காப்பு துறை / மாவட்ட சமூக நல அலுவலகம்",
+      "steps_en": [
+        "Visit https://www.tnesevai.tn.gov.in or the nearest District Social Welfare Office",
+        "Fill the Senior Citizen Card application form",
+        "Upload age proof and address proof",
+        "Pay applicable fee (if any)",
+        "Verification by social welfare officer",
+        "Senior Citizen Card issued"
+      ],
+      "steps_ta": [
+        "https://www.tnesevai.tn.gov.in திறக்கவும் அல்லது அருகிலுள்ள மாவட்ட சமூக நல அலுவலகம் செல்லவும்",
+        "மூத்த குடிமக்கள் அட்டை விண்ணப்பப் படிவத்தை நிரப்பவும்",
+        "வயது சான்று மற்றும் முகவரி சான்று பதிவேற்றவும்",
+        "பொருந்தும் கட்டணம் செலுத்தவும் (ஏதேனும் இருந்தால்)",
+        "சமூக நல அலுவலரால் சரிபார்ப்பு",
+        "மூத்த குடிமக்கள் அட்டை வழங்கப்படும்"
+      ],
+      "documents_en": [
+        "Aadhaar Card (with age 60+ visible)",
+        "Age proof: Birth Certificate / Voter ID / Passport",
+        "Address proof",
+        "Passport-size photographs (2 copies)"
+      ],
+      "documents_ta": [
+        "ஆதார் அட்டை (60+ வயது தெரியும்படி)",
+        "வயது சான்று: பிறப்புச் சான்றிதழ் / வாக்காளர் அட்டை / பாஸ்போர்ட்",
+        "முகவரி சான்று",
+        "பாஸ்போர்ட் அளவு புகைப்படங்கள் (2 நகல்கள்)"
+      ],
+      "fee_en": "Free",
+      "processing_time_en": "15–30 days",
+      "validity_en": "Lifetime"
+    },
+    {
+      "id": "differently-abled-certificate",
+      "category": "State Welfare",
+      "name_en": "Disability Certificate (Differently Abled)",
+      "name_ta": "மாற்றுத்திறனாளி சான்றிதழ்",
+      "description_en": "Certificate certifying a person's disability type and percentage, required for government concessions, reservations, and welfare schemes.",
+      "description_ta": "ஒருவரின் மாற்றுத்திறன் வகை மற்றும் சதவீதத்தை சான்றளிக்கும் ஆவணம், அரசு சலுகைகள் மற்றும் நல திட்டங்களுக்கு தேவை.",
+      "portal": "https://swavlambancard.gov.in",
+      "legal_en": "Issued under the Rights of Persons with Disabilities Act, 2016.",
+      "legal_ta": "மாற்றுத்திறனாளிகளின் உரிமைகள் சட்டம், 2016 இன் கீழ் வழங்கப்படுகிறது.",
+      "issuing_authority_en": "District Medical Board / Chief Medical Officer",
+      "issuing_authority_ta": "மாவட்ட மருத்துவ வாரியம் / தலைமை மருத்துவ அலுவலர்",
+      "steps_en": [
+        "Visit https://swavlambancard.gov.in (UDID portal)",
+        "Register and apply for UDID (Unique Disability ID) Card",
+        "Fill application with disability details",
+        "Book appointment with District Medical Board",
+        "Medical examination conducted by a board of doctors",
+        "Disability type and percentage assessed and certified",
+        "UDID / Disability Certificate issued"
+      ],
+      "steps_ta": [
+        "https://swavlambancard.gov.in (UDID போர்ட்டல்) திறக்கவும்",
+        "பதிவு செய்து UDID (தனிப்பட்ட மாற்றுத்திறன் அடையாள) அட்டைக்கு விண்ணப்பிக்கவும்",
+        "மாற்றுத்திறன் விவரங்களுடன் விண்ணப்பம் நிரப்பவும்",
+        "மாவட்ட மருத்துவ வாரியத்துடன் நேரம் முன்பதிவு செய்யவும்",
+        "மருத்துவர்கள் குழுவால் மருத்துவ பரிசோதனை நடத்தப்படும்",
+        "மாற்றுத்திறன் வகை மற்றும் சதவீதம் மதிப்பிடப்படும்",
+        "UDID / மாற்றுத்திறனாளி சான்றிதழ் வழங்கப்படும்"
+      ],
+      "documents_en": [
+        "Aadhaar Card",
+        "Medical records / Discharge summary showing disability",
+        "Address proof",
+        "Passport-size photographs"
+      ],
+      "documents_ta": [
+        "ஆதார் அட்டை",
+        "மாற்றுத்திறனை காட்டும் மருத்துவ ஆவணங்கள் / டிஸ்சார்ஜ் சுருக்கம்",
+        "முகவரி சான்று",
+        "பாஸ்போர்ட் அளவு புகைப்படங்கள்"
+      ],
+      "fee_en": "Free",
+      "processing_time_en": "30–60 days",
+      "validity_en": "Permanent (for permanent disabilities); periodic renewal for others"
+    },
+    {
+      "id": "unemployment-certificate",
+      "category": "Employment",
+      "name_en": "Unemployment Certificate",
+      "name_ta": "வேலையின்மை சான்றிதழ்",
+      "description_en": "Certificate confirming that a person is registered as unemployed with the Tamil Nadu Employment Exchange, required for certain government schemes.",
+      "description_ta": "தமிழ்நாடு வேலைவாய்ப்பு அலுவலகத்தில் வேலையில்லாதவராக பதிவு செய்யப்பட்டிருப்பதை உறுதிப்படுத்தும் சான்றிதழ்.",
+      "portal": "https://www.tnvelaivaaippu.gov.in",
+      "legal_en": "Issued by Tamil Nadu Employment and Training Department.",
+      "legal_ta": "தமிழ்நாடு வேலைவாய்ப்பு மற்றும் பயிற்சி துறை வழங்குகிறது.",
+      "issuing_authority_en": "District Employment Office",
+      "issuing_authority_ta": "மாவட்ட வேலைவாய்ப்பு அலுவலகம்",
+      "steps_en": [
+        "Visit https://www.tnvelaivaaippu.gov.in",
+        "Register as a job seeker",
+        "Fill educational qualification and work experience details",
+        "Register with the nearest District Employment Exchange",
+        "Employment Exchange issues a Registration Certificate (Unemployment Certificate)"
+      ],
+      "steps_ta": [
+        "https://www.tnvelaivaaippu.gov.in திறக்கவும்",
+        "வேலை தேடுபவராக பதிவு செய்யவும்",
+        "கல்வி தகுதி மற்றும் பணி அனுபவ விவரங்களை நிரப்பவும்",
+        "அருகிலுள்ள மாவட்ட வேலைவாய்ப்பு அலுவலகத்தில் பதிவு செய்யவும்",
+        "வேலைவாய்ப்பு அலுவலகம் பதிவு சான்றிதழ் (வேலையின்மை சான்றிதழ்) வழங்கும்"
+      ],
+      "documents_en": [
+        "Aadhaar Card",
+        "Educational certificates (SSLC / HSC / Degree)",
+        "Address proof",
+        "Passport-size photographs"
+      ],
+      "documents_ta": [
+        "ஆதார் அட்டை",
+        "கல்வி சான்றிதழ்கள் (SSLC / HSC / பட்டம்)",
+        "முகவரி சான்று",
+        "பாஸ்போர்ட் அளவு புகைப்படங்கள்"
+      ],
+      "fee_en": "Free",
+      "processing_time_en": "1–3 working days after registration",
+      "validity_en": "Renewal required annually"
+    }
+  ]
+}

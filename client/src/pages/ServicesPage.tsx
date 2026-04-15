@@ -1,20 +1,21 @@
-import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Search, ArrowRight, FileText } from 'lucide-react';
+import { Search, ArrowRight, FileText, X } from 'lucide-react';
 import { api } from '../lib/api';
 import type { Service } from '../types';
 
 export default function ServicesPage() {
   const { i18n } = useTranslation();
   const ta = i18n.language === 'ta';
-  const [searchParams] = useSearchParams();
-  const [search, setSearch] = useState(() => searchParams.get('q') ?? '');
+  const [searchParams, setSearchParams] = useSearchParams();
+  // Drive search directly from URL — no intermediate state so first keystroke works
+  const search = searchParams.get('q') ?? '';
 
-  useEffect(() => {
-    setSearch(searchParams.get('q') ?? '');
-  }, [searchParams]);
+  const handleSearch = (val: string) => {
+    if (val.trim()) setSearchParams({ q: val }, { replace: true });
+    else setSearchParams({}, { replace: true });
+  };
 
   const { data = [], isLoading } = useQuery({
     queryKey: ['services'],
@@ -22,11 +23,11 @@ export default function ServicesPage() {
   });
 
   const filtered = data.filter((s) => {
-    const q = search.toLowerCase();
+    const q = search.toLowerCase().trim();
+    if (!q) return true;
     return (
-      s.nameEn.toLowerCase().includes(q) ||
-      s.nameTa.toLowerCase().includes(q) ||
-      s.descriptionEn.toLowerCase().includes(q)
+      s.nameEn.toLowerCase().startsWith(q) ||
+      s.nameTa.toLowerCase().startsWith(q)
     );
   });
 
@@ -55,18 +56,26 @@ export default function ServicesPage() {
           <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
           <input
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => handleSearch(e.target.value)}
             placeholder={ta ? 'சேவை தேடுங்கள்...' : 'Search services...'}
-            className="w-full rounded-xl py-3 pl-10 pr-4 text-sm outline-none"
+            className="w-full rounded-xl py-3 pl-10 pr-10 text-sm outline-none"
             style={{ background: 'rgba(255,255,255,0.95)', color: 'var(--navy-dark)' }}
           />
+          {search && (
+            <button
+              onClick={() => handleSearch('')}
+              className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-0.5 hover:bg-slate-200 transition-colors"
+            >
+              <X size={14} className="text-slate-400" />
+            </button>
+          )}
         </div>
       </div>
 
       {/* Results count */}
       {search && (
         <p className="text-sm text-slate-500">
-          {filtered.length} {ta ? 'முடிவுகள்' : 'results'} {ta ? 'கண்டறியப்பட்டது' : 'found'}
+          {filtered.length} {ta ? 'முடிவுகள் கண்டறியப்பட்டது' : `result${filtered.length !== 1 ? 's' : ''} found`} {ta ? '' : `for "${search}"`}
         </p>
       )}
 
