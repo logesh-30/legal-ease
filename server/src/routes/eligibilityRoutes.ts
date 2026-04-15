@@ -8,116 +8,157 @@ const router = Router();
 type EligibilityData = {
   age: number;
   gender: "Male" | "Female" | "Other";
-  annualIncome: number;
-  occupation: "Farmer" | "Student" | "Salaried" | "Self Employed" | "Unemployed" | "Other";
-  category: "General" | "OBC" | "SC" | "ST";
+  maritalStatus: string;
   state: string;
-  isStudent: boolean;
-  isFarmer: boolean;
+  district: string;
+  areaType: string;
+  annualIncome: number;
+  hasIncomeCertificate: boolean;
+  isBPL: boolean;
+  occupation: string;
+  educationLevel: string;
+  institutionType: string;
+  hasLand: boolean;
+  landSize: string;
+  highestQualification: string;
+  isCurrentlyStudying: boolean;
+  category: "General" | "OBC" | "SC" | "ST";
+  isMinority: boolean;
+  familySize: number;
+  earningMembers: number;
   isSeniorCitizen: boolean;
+  isWidow: boolean;
   isDifferentlyAbled: boolean;
+  isFarmer: boolean;
+  isStudent: boolean;
 };
 
-const parseRestrictions = (eligibilityText: string) => {
-  const text = eligibilityText.toLowerCase();
-  const incomeValues = Array.from(text.matchAll(/(\d+(?:\.\d+)?)\s*lakh/g)).map((item) => Number(item[1]) * 100000);
-  const incomeMax = incomeValues.length ? Math.max(...incomeValues) : undefined;
+type MatchResult = { eligible: boolean; reasons: string[] };
 
-  let ageMin: number | undefined;
-  let ageMax: number | undefined;
-  const betweenAge = text.match(/between\s+(\d{1,3})\s*(?:and|-)\s*(\d{1,3})/i);
-  if (betweenAge) {
-    ageMin = Number(betweenAge[1]);
-    ageMax = Number(betweenAge[2]);
-  } else {
-    const aboveAge = text.match(/(?:above|at least|greater than)\s+(\d{1,3})\s*(?:years|yrs|year)?/i);
-    const belowAge = text.match(/(?:below|under|less than)\s+(\d{1,3})\s*(?:years|yrs|year)?/i);
-    if (aboveAge) ageMin = Number(aboveAge[1]);
-    if (belowAge) ageMax = Number(belowAge[1]);
+// ── Each check is independent: only fails if the scheme REQUIRES it and user doesn't meet it ──
+const matchScheme = (eligibilityText: string, user: EligibilityData): MatchResult => {
+  const text = eligibilityText.toLowerCase();
+  const reasons: string[] = [];
+
+  // ── Income ──
+  const incomeLakhMatches = Array.from(text.matchAll(/(\d+(?:\.\d+)?)\s*lakh/g));
+  if (incomeLakhMatches.length > 0) {
+    const incomeMax = Math.max(...incomeLakhMatches.map((m) => Number(m[1]) * 100000));
+    if (user.annualIncome > incomeMax) return { eligible: false, reasons: [] };
+    reasons.push(`Income ≤ ₹${(incomeMax / 100000).toFixed(1)}L`);
   }
 
-  const categories = {
-    sc: /\bsc\b|scheduled caste/i.test(text),
-    st: /\bst\b|scheduled tribe/i.test(text),
-    obc: /\bobc\b|backward class/i.test(text)
-  };
-  const requiresStudent = /student|school|college/i.test(text);
-  const requiresFarmer = /farmer|agriculture|cultivator/i.test(text);
-  const requiresSenior = /senior citizen|elderly|old age|above\s*60/i.test(text);
-  const requiresDifferentlyAbled = /disabled|disability|differently abled/i.test(text);
+  // ── Age ──
+  const betweenAge = text.match(/between\s+(\d{1,3})\s*(?:and|-)\s*(\d{1,3})/i);
+  const rangeAge = text.match(/(\d{1,3})\s*[-–]\s*(\d{1,3})\s*(?:years|yrs|year)/i);
+  const aboveAge = text.match(/(?:above|at least|greater than)\s+(\d{1,3})\s*(?:years|yrs|year)?/i);
+  const belowAge = text.match(/(?:below|under|less than)\s+(\d{1,3})\s*(?:years|yrs|year)?/i);
 
-  return {
-    hasRestrictions:
-      Boolean(incomeMax) ||
-      Boolean(ageMin) ||
-      Boolean(ageMax) ||
-      categories.sc ||
-      categories.st ||
-      categories.obc ||
-      requiresStudent ||
-      requiresFarmer ||
-      requiresSenior ||
-      requiresDifferentlyAbled,
-    incomeMax,
-    ageMin,
-    ageMax,
-    categories,
-    requiresStudent,
-    requiresFarmer,
-    requiresSenior,
-    requiresDifferentlyAbled
-  };
-};
-
-const isEligibleForScheme = (eligibilityText: string, userData: EligibilityData) => {
-  const rules = parseRestrictions(eligibilityText);
-  if (!rules.hasRestrictions) return true;
-
-  if (typeof rules.incomeMax === "number" && userData.annualIncome > rules.incomeMax) return false;
-  if (typeof rules.ageMin === "number" && userData.age < rules.ageMin) return false;
-  if (typeof rules.ageMax === "number" && userData.age > rules.ageMax) return false;
-
-  if (rules.categories.sc || rules.categories.st || rules.categories.obc) {
-    const categoryLower = userData.category.toLowerCase();
-    if (
-      (rules.categories.sc && categoryLower !== "sc") ||
-      (rules.categories.st && categoryLower !== "st") ||
-      (rules.categories.obc && categoryLower !== "obc")
-    ) {
-      return false;
+  if (betweenAge) {
+    const [min, max] = [Number(betweenAge[1]), Number(betweenAge[2])];
+    if (user.age < min || user.age > max) return { eligible: false, reasons: [] };
+    reasons.push(`Age ${min}–${max}`);
+  } else if (rangeAge) {
+    const [min, max] = [Number(rangeAge[1]), Number(rangeAge[2])];
+    if (user.age < min || user.age > max) return { eligible: false, reasons: [] };
+    reasons.push(`Age ${min}–${max}`);
+  } else {
+    if (aboveAge) {
+      const min = Number(aboveAge[1]);
+      if (user.age < min) return { eligible: false, reasons: [] };
+      reasons.push(`Age ≥ ${min}`);
+    }
+    if (belowAge) {
+      const max = Number(belowAge[1]);
+      if (user.age > max) return { eligible: false, reasons: [] };
+      reasons.push(`Age ≤ ${max}`);
     }
   }
 
-  if (rules.requiresStudent && !(userData.isStudent || userData.occupation === "Student")) return false;
-  if (rules.requiresFarmer && !(userData.isFarmer || userData.occupation === "Farmer")) return false;
-  if (rules.requiresSenior && !(userData.isSeniorCitizen || userData.age >= 60)) return false;
-  if (rules.requiresDifferentlyAbled && !userData.isDifferentlyAbled) return false;
+  // ── Category — only restrict if scheme explicitly names a specific caste group ──
+  const needsSC  = /\bsc\b|scheduled caste/i.test(text);
+  const needsST  = /\bst\b|scheduled tribe/i.test(text);
+  const needsOBC = /\bobc\b|other backward/i.test(text);
+  if (needsSC && user.category !== "SC") return { eligible: false, reasons: [] };
+  if (needsST && user.category !== "ST") return { eligible: false, reasons: [] };
+  if (needsOBC && user.category !== "OBC") return { eligible: false, reasons: [] };
+  if (needsSC || needsST || needsOBC) reasons.push(`Category: ${user.category}`);
 
-  return true;
+  // ── Gender — only restrict if scheme is explicitly for women/girls ──
+  const femaleOnly = /\bwomen\b|\bwoman\b|\bfemale\b|\bgirl\b|\bmahila\b/i.test(text);
+  if (femaleOnly && user.gender !== "Female") return { eligible: false, reasons: [] };
+  if (femaleOnly) reasons.push("Female");
+
+  // ── Occupation-based conditions — independent checks ──
+  const requiresFarmer = /\bfarmer\b|\bagriculture\b|\bcultivator\b|\bkisan\b|\bfisherm/i.test(text);
+  const requiresStudent = /\bstudent\b|\bschool\b|\bcollege\b|\bscholarship\b/i.test(text);
+  const requiresBusiness = /\bentrepreneur\b|\bmsme\b|\bself.?employed\b|\bstartup\b|\bvendor\b|\bstreet vendor\b/i.test(text);
+  const requiresWorker = /\bunorganized worker\b|\blabour\b|\bworker\b|\bartisan\b|\bcraftspeo/i.test(text);
+
+  if (requiresFarmer && !(user.isFarmer || user.occupation === "Farmer")) return { eligible: false, reasons: [] };
+  if (requiresStudent && !(user.isStudent || user.occupation === "Student")) return { eligible: false, reasons: [] };
+  if (requiresBusiness && user.occupation !== "Self Employed") return { eligible: false, reasons: [] };
+  if (requiresWorker && !["Farmer", "Self Employed", "Unemployed", "Other"].includes(user.occupation)) return { eligible: false, reasons: [] };
+
+  if (requiresFarmer) reasons.push("Farmer");
+  if (requiresStudent) reasons.push("Student");
+  if (requiresBusiness) reasons.push("Self Employed");
+
+  // ── Special conditions — only fail if scheme explicitly requires them ──
+  const requiresSenior = /senior citizen|elderly|old age|\bage\s*60\b|above\s*60/i.test(text);
+  const requiresDisabled = /\bdisabled\b|\bdisability\b|differently.?abled|\budid\b/i.test(text);
+  const requiresWidow = /\bwidow\b|\bwidower\b/i.test(text);
+  const requiresBPL = /\bbpl\b|below poverty|ration card|antyodaya/i.test(text);
+
+  if (requiresSenior && !(user.isSeniorCitizen || user.age >= 60)) return { eligible: false, reasons: [] };
+  if (requiresDisabled && !user.isDifferentlyAbled) return { eligible: false, reasons: [] };
+  if (requiresWidow && !user.isWidow) return { eligible: false, reasons: [] };
+  if (requiresBPL && !user.isBPL) return { eligible: false, reasons: [] };
+
+  if (requiresSenior) reasons.push("Senior Citizen");
+  if (requiresDisabled) reasons.push("Differently Abled");
+  if (requiresWidow) reasons.push("Widow/Widower");
+  if (requiresBPL) reasons.push("BPL");
+
+  return { eligible: true, reasons };
 };
 
+// ── Routes ────────────────────────────────────────────────────────────────────
 router.post("/eligibility", requireAuth, async (req: AuthedRequest, res) => {
   const payload = req.body as Partial<EligibilityData>;
-  if (!payload?.age || payload.age <= 0) {
+  if (!payload?.age || payload.age <= 0)
     return res.status(400).json({ message: "Age must be greater than 0" });
-  }
-  if (!Number.isFinite(payload.annualIncome) || Number(payload.annualIncome) <= 0) {
+  if (!Number.isFinite(payload.annualIncome) || Number(payload.annualIncome) <= 0)
     return res.status(400).json({ message: "Annual income must be a valid number greater than 0" });
-  }
-  if (!payload.gender || !payload.occupation || !payload.category || !payload.state?.trim()) {
+  if (!payload.gender || !payload.occupation || !payload.category || !payload.state?.trim())
     return res.status(400).json({ message: "Required fields cannot be empty" });
-  }
+
   const normalized: EligibilityData = {
     age: payload.age,
     gender: payload.gender,
+    maritalStatus: payload.maritalStatus ?? "Single",
+    state: payload.state?.trim() ?? "Tamil Nadu",
+    district: payload.district?.trim() ?? "",
+    areaType: payload.areaType ?? "Rural",
     annualIncome: Number(payload.annualIncome),
+    hasIncomeCertificate: Boolean(payload.hasIncomeCertificate),
+    isBPL: Boolean(payload.isBPL),
     occupation: payload.occupation,
+    educationLevel: payload.educationLevel ?? "",
+    institutionType: payload.institutionType ?? "",
+    hasLand: Boolean(payload.hasLand),
+    landSize: payload.landSize ?? "",
+    highestQualification: payload.highestQualification ?? "",
+    isCurrentlyStudying: Boolean(payload.isCurrentlyStudying),
     category: payload.category,
-    state: payload.state.trim(),
-    isStudent: Boolean(payload.isStudent),
-    isFarmer: Boolean(payload.isFarmer),
+    isMinority: Boolean(payload.isMinority),
+    familySize: Number(payload.familySize) || 1,
+    earningMembers: Number(payload.earningMembers) || 1,
     isSeniorCitizen: Boolean(payload.isSeniorCitizen),
-    isDifferentlyAbled: Boolean(payload.isDifferentlyAbled)
+    isWidow: Boolean(payload.isWidow) || payload.maritalStatus === "Widow",
+    isDifferentlyAbled: Boolean(payload.isDifferentlyAbled),
+    isFarmer: Boolean(payload.isFarmer) || payload.occupation === "Farmer",
+    isStudent: Boolean(payload.isStudent) || payload.occupation === "Student",
   };
 
   const saved = await Eligibility.findOneAndUpdate(
@@ -135,11 +176,21 @@ router.get("/eligibility", requireAuth, async (req: AuthedRequest, res) => {
 
 router.get("/eligible-schemes", requireAuth, async (req: AuthedRequest, res) => {
   const eligibility = await Eligibility.findOne({ userId: req.user!.id });
-  if (!eligibility) {
+  if (!eligibility)
     return res.status(400).json({ message: "Please fill eligibility form first" });
-  }
+
   const schemes = await Scheme.find().sort({ createdAt: -1 });
-  const matched = schemes.filter((scheme) => isEligibleForScheme(scheme.eligibilityEn, eligibility as unknown as EligibilityData));
+  const user = eligibility as unknown as EligibilityData;
+
+  const matched = schemes
+    .map((scheme) => {
+      const { eligible, reasons } = matchScheme(scheme.eligibilityEn, user);
+      return eligible ? { ...scheme.toObject(), matchedReasons: reasons } : null;
+    })
+    .filter(Boolean)
+    // Sort by number of matched reasons descending (best match first)
+    .sort((a: any, b: any) => (b.matchedReasons?.length ?? 0) - (a.matchedReasons?.length ?? 0));
+
   return res.json(matched);
 });
 

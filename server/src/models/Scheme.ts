@@ -25,6 +25,8 @@ const schemeSchema = new Schema(
     benefitsTa: { type: String, required: true },
     howToApplyEn: { type: String, required: true },
     howToApplyTa: { type: String, required: true },
+    documentsEn: [{ type: String }],
+    documentsTa: [{ type: String }],
     officialLink: { type: String, required: true }
   },
   { timestamps: { createdAt: true, updatedAt: false } }
