@@ -49,9 +49,9 @@ export default function App() {
             </ProtectedRoute>
           )}
         />
-        <Route path="/admin/login" element={<AdminLoginPage />} />
-        <Route path="/admin" element={<AdminDashboardPage />} />
       </Route>
+      <Route path="/admin/login" element={<AdminLoginPage />} />
+      <Route path="/admin" element={<AdminDashboardPage />} />
     </Routes>
   );
 }
