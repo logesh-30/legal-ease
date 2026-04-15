@@ -221,22 +221,58 @@ export default function SchemeDetailPage() {
       </div>
       {saveMessage && <p className="text-sm text-amber-600 font-medium">{saveMessage}</p>}
 
-      {/* Info cards */}
+      {/* Eligibility & Benefits */}
       {[
         { label: T.eligibility, content: ta ? s.eligibilityTa : s.eligibilityEn, color: 'var(--sky)' },
         { label: T.benefits, content: ta ? s.benefitsTa : s.benefitsEn, color: 'var(--mint)' },
-        { label: T.howToApply, content: ta ? s.howToApplyTa : s.howToApplyEn, color: 'var(--gold)' },
       ].map(({ label, content, color }) => (
         <div key={label} className="card p-6">
-          <h2
-            className="mb-2 text-sm font-bold uppercase tracking-wide"
-            style={{ color }}
-          >
+          <h2 className="mb-2 text-sm font-bold uppercase tracking-wide" style={{ color }}>
             {label}
           </h2>
           <p className="text-sm text-slate-700 leading-relaxed">{content}</p>
         </div>
       ))}
+
+      {/* How to Apply — numbered steps */}
+      <div className="card p-6">
+        <h2 className="mb-4 text-sm font-bold uppercase tracking-wide" style={{ color: 'var(--gold)' }}>
+          {T.howToApply}
+        </h2>
+        <ol className="space-y-3">
+          {(ta ? s.howToApplyTa : s.howToApplyEn)
+            .split('\n')
+            .filter((step: string) => step.trim())
+            .map((step: string, i: number) => (
+              <li key={i} className="flex gap-3">
+                <span
+                  className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white mt-0.5"
+                  style={{ background: 'var(--navy)', minWidth: '1.25rem' }}
+                >
+                  {i + 1}
+                </span>
+                <span className="text-sm text-slate-700 leading-relaxed">{step.trim()}</span>
+              </li>
+            ))}
+        </ol>
+      </div>
+
+      {/* Documents Required */}
+      {((ta ? s.documentsTa : s.documentsEn) ?? []).length > 0 && (
+        <div className="card p-6">
+          <h2 className="mb-3 text-sm font-bold uppercase tracking-wide" style={{ color: 'var(--saffron)' }}>
+            {ta ? 'தேவையான ஆவணங்கள்' : 'Documents Required'}
+          </h2>
+          <ul className="space-y-2">
+            {(ta ? s.documentsTa : s.documentsEn).map((doc, i) => (
+              <li key={i} className="flex items-start gap-2 text-sm text-slate-700">
+                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full" style={{ background: 'var(--saffron)' }} />
+                {doc}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* Actions */}
       <div className="flex flex-wrap gap-3">

@@ -1,0 +1,638 @@
+[
+  {
+    "name": "Poonamallee e-Sevai Center",
+    "address": "Poonamallee, Chennai",
+    "latitude": 13.048,
+    "longitude": 80.106,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Egmore Taluk Office",
+    "address": "Egmore, Chennai",
+    "latitude": 13.0722,
+    "longitude": 80.261,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Kodambakkam Taluk Office",
+    "address": "Kodambakkam, Chennai",
+    "latitude": 13.0484,
+    "longitude": 80.2305,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Ambattur e-Sevai Center",
+    "address": "Ambattur, Chennai",
+    "latitude": 13.1143,
+    "longitude": 80.1581,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Porur Taluk Office",
+    "address": "Porur, Chennai",
+    "latitude": 13.032,
+    "longitude": 80.1588,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Tiruvannamalai District Office",
+    "address": "Tiruvannamalai",
+    "latitude": 12.2253,
+    "longitude": 79.0747,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Adyar Taluk Office",
+    "address": "Adyar, Chennai",
+    "latitude": 13.0067,
+    "longitude": 80.257,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Mylapore e-Sevai Center",
+    "address": "Mylapore, Chennai",
+    "latitude": 13.0339,
+    "longitude": 80.2666,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Tondiarpet e-Sevai Center",
+    "address": "Tondiarpet, Chennai",
+    "latitude": 13.1234,
+    "longitude": 80.2945,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Saidapet e-Sevai Center",
+    "address": "Saidapet, Chennai",
+    "latitude": 13.03,
+    "longitude": 80.22,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Chromepet Taluk Office",
+    "address": "Chromepet, Chennai",
+    "latitude": 12.951,
+    "longitude": 80.14,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Kanchipuram Taluk Office",
+    "address": "Kanchipuram",
+    "latitude": 12.8342,
+    "longitude": 79.7036,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Theni e-Sevai Center",
+    "address": "Theni",
+    "latitude": 10.0104,
+    "longitude": 77.4777,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Manamadurai e-Sevai Center",
+    "address": "Manamadurai",
+    "latitude": 9.55,
+    "longitude": 78.47,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Thoothukudi Taluk Office",
+    "address": "Thoothukudi",
+    "latitude": 8.7642,
+    "longitude": 78.1348,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Usilampatti Taluk Office",
+    "address": "Usilampatti, Madurai",
+    "latitude": 9.97,
+    "longitude": 77.79,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Dindigul Taluk Office",
+    "address": "Dindigul",
+    "latitude": 10.365,
+    "longitude": 77.9803,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Virudhunagar e-Sevai Center",
+    "address": "Virudhunagar",
+    "latitude": 9.5851,
+    "longitude": 77.9574,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Madurai Collector Office",
+    "address": "Madurai",
+    "latitude": 9.9252,
+    "longitude": 78.1198,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Ramanathapuram Taluk Office",
+    "address": "Ramanathapuram",
+    "latitude": 9.37,
+    "longitude": 78.83,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Melur e-Sevai Center",
+    "address": "Melur, Madurai",
+    "latitude": 10.03,
+    "longitude": 78.35,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Sivaganga e-Sevai Center",
+    "address": "Sivaganga",
+    "latitude": 9.847,
+    "longitude": 78.4836,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Tirunelveli District Office",
+    "address": "Tirunelveli",
+    "latitude": 8.7139,
+    "longitude": 77.7567,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Thirumangalam Taluk Office",
+    "address": "Thirumangalam, Madurai",
+    "latitude": 9.83,
+    "longitude": 78.08,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Sendurai Taluk Office",
+    "address": "Sendurai, Ariyalur",
+    "latitude": 11.25,
+    "longitude": 78.9833,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Cuddalore e-Sevai Center",
+    "address": "Cuddalore",
+    "latitude": 11.7447,
+    "longitude": 79.768,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Thiruvarur Collectorate",
+    "address": "Thiruvarur",
+    "latitude": 10.7715,
+    "longitude": 79.6365,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Ariyalur Taluk Office",
+    "address": "Ariyalur",
+    "latitude": 11.139,
+    "longitude": 79.075,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Nagapattinam Taluk Office",
+    "address": "Nagapattinam",
+    "latitude": 10.763,
+    "longitude": 79.842,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Mayiladuthurai Collectorate",
+    "address": "Mayiladuthurai",
+    "latitude": 11.103,
+    "longitude": 79.652,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Thanjavur Collectorate",
+    "address": "Thanjavur",
+    "latitude": 10.7867,
+    "longitude": 79.1378,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Jayankondam e-Sevai Center",
+    "address": "Jayankondam, Ariyalur",
+    "latitude": 11.2,
+    "longitude": 79.3667,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Villupuram Taluk Office",
+    "address": "Villupuram",
+    "latitude": 11.9391,
+    "longitude": 79.4873,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Perambalur e-Sevai Center",
+    "address": "Perambalur",
+    "latitude": 11.2333,
+    "longitude": 78.8833,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Attur Taluk Office",
+    "address": "Attur, Salem",
+    "latitude": 11.6,
+    "longitude": 78.6,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Mettur e-Sevai Center",
+    "address": "Mettur, Salem",
+    "latitude": 11.8,
+    "longitude": 77.8,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Salem e-Sevai Center",
+    "address": "Salem",
+    "latitude": 11.6643,
+    "longitude": 78.146,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Erode Taluk Office",
+    "address": "Erode",
+    "latitude": 11.341,
+    "longitude": 77.7172,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Namakkal Taluk Office",
+    "address": "Namakkal",
+    "latitude": 11.228,
+    "longitude": 78.167,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Coimbatore Taluk Office",
+    "address": "Coimbatore",
+    "latitude": 11.0168,
+    "longitude": 76.9558,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Dharmapuri Taluk Office",
+    "address": "Dharmapuri",
+    "latitude": 12.1277,
+    "longitude": 78.157,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Karur Collector Office",
+    "address": "Karur",
+    "latitude": 10.9601,
+    "longitude": 78.0766,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Namakkal Collectorate",
+    "address": "Namakkal",
+    "latitude": 11.228,
+    "longitude": 78.167,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Tiruppur e-Sevai Center",
+    "address": "Tiruppur",
+    "latitude": 11.1085,
+    "longitude": 77.3411,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Sankari Taluk Office",
+    "address": "Sankari, Salem",
+    "latitude": 11.48,
+    "longitude": 77.87,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Tenkasi e-Sevai Center",
+    "address": "Tenkasi",
+    "latitude": 8.9599,
+    "longitude": 77.315,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Srirangam e-Sevai Center",
+    "address": "Srirangam, Trichy",
+    "latitude": 10.8572,
+    "longitude": 78.688,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Lalgudi Taluk Office",
+    "address": "Lalgudi, Trichy",
+    "latitude": 10.87,
+    "longitude": 78.82,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Musiri e-Sevai Center",
+    "address": "Musiri, Trichy",
+    "latitude": 10.95,
+    "longitude": 78.4,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Pudukkottai District Office",
+    "address": "Pudukkottai",
+    "latitude": 10.3813,
+    "longitude": 78.8214,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Thuraiyur Taluk Office",
+    "address": "Thuraiyur, Trichy",
+    "latitude": 11.15,
+    "longitude": 78.6,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Thirumayam e-Sevai Center",
+    "address": "Thirumayam, Pudukkottai",
+    "latitude": 10.25,
+    "longitude": 78.75,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  },
+  {
+    "name": "Manapparai Taluk Office",
+    "address": "Manapparai, Trichy",
+    "latitude": 10.61,
+    "longitude": 78.43,
+    "working_hours": "Mon-Sat 10:00 AM - 5:30 PM",
+    "services_offered": [
+      "Certificates",
+      "Scheme Assistance",
+      "Application Tracking"
+    ]
+  }
+]

@@ -28,6 +28,7 @@ export default function AdminDashboardPage() {
 
   const handleLogout = async () => {
     await logout();
+    localStorage.removeItem('legalease_token');
     navigate('/admin/login');
   };
 
@@ -48,8 +49,8 @@ export default function AdminDashboardPage() {
       ...item,
       stepsEn: item.stepsEn?.join('\n'),
       stepsTa: item.stepsTa?.join('\n'),
-      documentsEn: item.documentsEn?.join('\n'),
-      documentsTa: item.documentsTa?.join('\n'),
+      documentsEn: Array.isArray(item.documentsEn) ? item.documentsEn.join('\n') : (item.documentsEn ?? ''),
+      documentsTa: Array.isArray(item.documentsTa) ? item.documentsTa.join('\n') : (item.documentsTa ?? ''),
       servicesOffered: item.servicesOffered?.join('\n'),
     } : {};
     if (type === 'service') serviceForm.reset(defaults);
@@ -77,8 +78,13 @@ export default function AdminDashboardPage() {
   });
 
   const submitScheme = schemeForm.handleSubmit(async (v) => {
-    if (modal.mode === 'edit') await api.put(`/schemes/${editItem._id}`, v);
-    else await api.post('/schemes', v);
+    const payload = {
+      ...v,
+      documentsEn: v.documentsEn ? v.documentsEn.split('\n').filter(Boolean) : [],
+      documentsTa: v.documentsTa ? v.documentsTa.split('\n').filter(Boolean) : [],
+    };
+    if (modal.mode === 'edit') await api.put(`/schemes/${editItem._id}`, payload);
+    else await api.post('/schemes', payload);
     setModal({ type: null, mode: 'add' });
     await refreshAll();
   });
@@ -296,6 +302,8 @@ export default function AdminDashboardPage() {
             <TextArea label="Benefits (Tamil)" reg={schemeForm.register('benefitsTa', { required: true })} />
             <TextArea label="How to Apply (English)" reg={schemeForm.register('howToApplyEn', { required: true })} />
             <TextArea label="How to Apply (Tamil)" reg={schemeForm.register('howToApplyTa', { required: true })} />
+            <TextArea label="Documents Required (English — one per line)" reg={schemeForm.register('documentsEn')} />
+            <TextArea label="Documents Required (Tamil — one per line)" reg={schemeForm.register('documentsTa')} />
           </TwoCol>
         </FormModal>
       )}

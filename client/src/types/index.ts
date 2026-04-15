@@ -25,6 +25,8 @@ export type Scheme = {
   benefitsTa: string;
   howToApplyEn: string;
   howToApplyTa: string;
+  documentsEn: string[];
+  documentsTa: string[];
   officialLink: string;
 };
 
@@ -41,14 +43,37 @@ export type Office = {
 export type User = { _id: string; name: string; email: string; role: 'user' | 'admin' };
 
 export type EligibilityProfile = {
+  // A. Personal
   age: number;
   gender: 'Male' | 'Female' | 'Other';
-  annualIncome: number;
-  occupation: 'Farmer' | 'Student' | 'Salaried' | 'Self Employed' | 'Unemployed' | 'Other';
-  category: 'General' | 'OBC' | 'SC' | 'ST';
+  maritalStatus: 'Single' | 'Married' | 'Widow' | 'Divorced';
+  // B. Location
   state: string;
-  isStudent: boolean;
-  isFarmer: boolean;
+  district: string;
+  areaType: 'Rural' | 'Urban';
+  // C. Income
+  annualIncome: number;
+  hasIncomeCertificate: boolean;
+  isBPL: boolean;
+  // D. Occupation
+  occupation: 'Farmer' | 'Student' | 'Govt Employee' | 'Private Employee' | 'Self Employed' | 'Unemployed' | 'Other';
+  educationLevel: 'School' | 'UG' | 'PG' | 'Other' | '';
+  institutionType: 'Government' | 'Private' | '';
+  hasLand: boolean;
+  landSize: string;
+  // E. Education
+  highestQualification: string;
+  isCurrentlyStudying: boolean;
+  // F. Social
+  category: 'General' | 'OBC' | 'SC' | 'ST';
+  isMinority: boolean;
+  // G. Family
+  familySize: number;
+  earningMembers: number;
+  // H. Special conditions
   isSeniorCitizen: boolean;
+  isWidow: boolean;
   isDifferentlyAbled: boolean;
+  isFarmer: boolean;
+  isStudent: boolean;
 };
