@@ -13,6 +13,8 @@ export default function HomePage() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
+  const [listening, setListening] = useState(false);
+  const [voiceError, setVoiceError] = useState('');
   const ta = i18n.language === 'ta';
 
   const { data: services = [] } = useQuery({
@@ -40,19 +42,49 @@ export default function HomePage() {
 
   const startVoice = () => {
     const Rec = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-    if (!Rec) return alert('Voice input not supported in this browser');
+    if (!Rec) {
+      setVoiceError(ta ? 'உங்கள் உலாவி குரல் உள்ளீட்டை ஆதரிக்கவில்லை' : 'Voice input not supported in this browser');
+      return;
+    }
+    setVoiceError('');
     const rec = new Rec();
     rec.lang = ta ? 'ta-IN' : 'en-IN';
+    rec.interimResults = false;
+    rec.maxAlternatives = 1;
+
+    rec.onstart = () => setListening(true);
+
     rec.onresult = (e: any) => {
-      const transcript = e.results[0][0].transcript as string;
+      const transcript = (e.results[0][0].transcript as string).trim();
+      setListening(false);
       setSearch(transcript);
-      // Smart route: check schemes first, then services
-      const tq = transcript.trim().toLowerCase();
-      const schemeHit = schemes.find((s) => s.nameEn.toLowerCase().includes(tq) || s.nameTa.toLowerCase().includes(tq));
-      if (schemeHit) navigate(`/schemes?q=${encodeURIComponent(transcript.trim())}`);
-      else navigate(`/services?q=${encodeURIComponent(transcript.trim())}`);
+      const tq = transcript.toLowerCase();
+      const schemeHit = schemes.find((s) =>
+        s.nameEn.toLowerCase().startsWith(tq) || s.nameTa.toLowerCase().startsWith(tq)
+      );
+      if (schemeHit) navigate(`/schemes?q=${encodeURIComponent(transcript)}`);
+      else navigate(`/services?q=${encodeURIComponent(transcript)}`);
     };
-    rec.start();
+
+    rec.onerror = (e: any) => {
+      setListening(false);
+      if (e.error === 'not-allowed') {
+        setVoiceError(ta ? 'மைக்ரோஃபோன் அனுமதி மறுக்கப்பட்டது. உலாவி அமைப்புகளில் அனுமதிக்கவும்.' : 'Microphone permission denied. Please allow it in browser settings.');
+      } else if (e.error === 'no-speech') {
+        setVoiceError(ta ? 'குரல் கேட்கவில்லை. மீண்டும் முயற்சிக்கவும்.' : 'No speech detected. Please try again.');
+      } else {
+        setVoiceError(ta ? 'குரல் பிழை. மீண்டும் முயற்சிக்கவும்.' : `Voice error: ${e.error}. Please try again.`);
+      }
+    };
+
+    rec.onend = () => setListening(false);
+
+    try {
+      rec.start();
+    } catch {
+      setListening(false);
+      setVoiceError(ta ? 'குரல் தொடங்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.' : 'Could not start voice input. Please try again.');
+    }
   };
 
   const handleSearch = (e: React.FormEvent) => {
@@ -191,13 +223,35 @@ export default function HomePage() {
             <button
               type="button"
               onClick={startVoice}
-              title="Voice search"
-              className="rounded-xl px-4 transition-all"
-              style={{ background: 'rgba(255,255,255,0.15)', color: '#fff', border: '1px solid rgba(255,255,255,0.25)' }}
+              disabled={listening}
+              title={listening ? (ta ? 'கேட்கிறது...' : 'Listening...') : (ta ? 'குரல் தேடல்' : 'Voice search')}
+              className="rounded-xl px-4 transition-all relative flex items-center justify-center"
+              style={{
+                background: listening ? 'rgba(239,68,68,0.25)' : 'rgba(255,255,255,0.15)',
+                color: '#fff',
+                border: `2px solid ${listening ? '#ef4444' : 'rgba(255,255,255,0.25)'}`,
+                minWidth: '52px',
+              }}
             >
-              <Mic size={18} />
+              {/* Pulsing rings when listening */}
+              {listening && (
+                <>
+                  <span className="absolute inset-0 rounded-xl animate-ping" style={{ background: 'rgba(239,68,68,0.25)' }} />
+                  <span className="absolute inset-[-6px] rounded-xl animate-ping" style={{ background: 'rgba(239,68,68,0.15)', animationDelay: '0.3s' }} />
+                </>
+              )}
+              <Mic
+                size={20}
+                className="relative z-10"
+                color={listening ? '#ef4444' : '#fff'}
+              />
             </button>
           </form>
+          {voiceError && (
+            <p className="mt-2 text-xs font-medium" style={{ color: '#fca5a5' }}>
+              {voiceError}
+            </p>
+          )}
         </div>
       </section>
 
