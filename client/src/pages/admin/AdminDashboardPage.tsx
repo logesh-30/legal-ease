@@ -1,11 +1,13 @@
 import { type BaseSyntheticEvent, type ReactNode, useMemo, useState } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import {
   Briefcase, FileBadge2, FileStack, Home, MapPin,
   Pencil, Plus, Trash2, Users as UsersIcon, X, Shield, LogOut
 } from 'lucide-react';
 import { api } from '../../lib/api';
+import { useAuth } from '../../context/AuthContext';
 import type { Office, Scheme, Service, User } from '../../types';
 
 export default function AdminDashboardPage() {
@@ -21,6 +23,13 @@ export default function AdminDashboardPage() {
   const { data: offices = [] } = useQuery({ queryKey: ['admin-offices'], queryFn: async () => (await api.get<Office[]>('/offices')).data });
   const { data: users = [] } = useQuery({ queryKey: ['admin-users'], queryFn: async () => (await api.get<User[]>('/users')).data });
   const { data: me } = useQuery({ queryKey: ['me'], queryFn: async () => (await api.get<User>('/auth/me')).data });
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/admin/login');
+  };
 
   const serviceForm = useForm<any>();
   const schemeForm = useForm<any>();
@@ -165,7 +174,14 @@ export default function AdminDashboardPage() {
               <p className="text-xs font-semibold text-white truncate">{me?.email ?? 'admin@legalease.com'}</p>
               <p className="text-xs" style={{ color: 'rgba(255,255,255,0.45)' }}>Administrator</p>
             </div>
-            <LogOut size={15} style={{ color: 'rgba(255,255,255,0.4)' }} />
+            <button
+              onClick={handleLogout}
+              title="Logout"
+              className="rounded-lg p-1.5 transition-colors hover:bg-red-500/20"
+              style={{ color: 'rgba(255,255,255,0.5)' }}
+            >
+              <LogOut size={15} />
+            </button>
           </div>
         </div>
       </aside>

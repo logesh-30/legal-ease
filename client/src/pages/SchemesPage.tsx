@@ -1,32 +1,48 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-import { Landmark, ArrowRight } from 'lucide-react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { Landmark, ArrowRight, Search, X } from 'lucide-react';
 import { api } from '../lib/api';
 import type { Scheme } from '../types';
 
 const CATEGORIES = ['All', 'Education', 'Business', 'Financial', 'Health', 'Agriculture'];
 
 const categoryMeta: Record<string, { color: string; bg: string }> = {
-  Education: { color: 'var(--sky)', bg: '#0ea5e918' },
-  Business:  { color: 'var(--saffron)', bg: '#f9731618' },
-  Financial: { color: 'var(--mint)', bg: '#10b98118' },
-  Health:    { color: '#ec4899', bg: '#ec489918' },
-  Agriculture: { color: '#84cc16', bg: '#84cc1618' },
+  Education:   { color: 'var(--sky)',     bg: '#0ea5e918' },
+  Business:    { color: 'var(--saffron)', bg: '#f9731618' },
+  Financial:   { color: 'var(--mint)',    bg: '#10b98118' },
+  Health:      { color: '#ec4899',        bg: '#ec489918' },
+  Agriculture: { color: '#84cc16',        bg: '#84cc1618' },
 };
 
 export default function SchemesPage() {
   const { i18n } = useTranslation();
   const ta = i18n.language === 'ta';
   const [category, setCategory] = useState('All');
+  const [searchParams, setSearchParams] = useSearchParams();
+  // Drive search directly from URL so first keystroke works
+  const search = searchParams.get('q') ?? '';
+
+  const handleSearch = (val: string) => {
+    if (val.trim()) setSearchParams({ q: val }, { replace: true });
+    else setSearchParams({}, { replace: true });
+  };
 
   const { data = [], isLoading } = useQuery({
     queryKey: ['schemes'],
     queryFn: async () => (await api.get<Scheme[]>('/schemes')).data,
   });
 
-  const filtered = category === 'All' ? data : data.filter((s) => s.category === category);
+  const filtered = data.filter((s) => {
+    const matchesCategory = category === 'All' || s.category === category;
+    const q = search.toLowerCase().trim();
+    const matchesSearch =
+      !q ||
+      s.nameEn.toLowerCase().startsWith(q) ||
+      s.nameTa.toLowerCase().startsWith(q);
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <div className="space-y-8">
@@ -46,9 +62,27 @@ export default function SchemesPage() {
             {ta ? 'அரசு திட்டங்கள்' : 'Government Schemes'}
           </h1>
         </div>
-        <p className="text-white/70 text-sm">
+        <p className="text-white/70 text-sm mb-6">
           {ta ? 'உங்களுக்கான நலத்திட்டங்களை கண்டறியுங்கள்' : 'Discover welfare schemes you may be eligible for'}
         </p>
+        <div className="relative max-w-lg">
+          <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+          <input
+            value={search}
+            onChange={(e) => handleSearch(e.target.value)}
+            placeholder={ta ? 'திட்டம் தேடுங்கள்...' : 'Search schemes...'}
+            className="w-full rounded-xl py-3 pl-10 pr-10 text-sm outline-none"
+            style={{ background: 'rgba(255,255,255,0.95)', color: 'var(--navy-dark)' }}
+          />
+          {search && (
+            <button
+              onClick={() => handleSearch('')}
+              className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-0.5 hover:bg-slate-200 transition-colors"
+            >
+              <X size={14} className="text-slate-400" />
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Category filter pills */}
@@ -75,8 +109,9 @@ export default function SchemesPage() {
 
       {/* Count */}
       <p className="text-sm text-slate-500">
-        {filtered.length} {ta ? 'திட்டங்கள்' : 'schemes'}
+        {filtered.length} {ta ? 'திட்டங்கள்' : `scheme${filtered.length !== 1 ? 's' : ''}`}
         {category !== 'All' && ` — ${category}`}
+        {search && ` ${ta ? 'தேடல் முடிவு' : `for "${search}"`}`}
       </p>
 
       {/* Grid */}
@@ -125,7 +160,18 @@ export default function SchemesPage() {
       {!isLoading && filtered.length === 0 && (
         <div className="card py-16 text-center">
           <Landmark size={40} className="mx-auto mb-3 opacity-30" />
-          <p className="text-slate-500">{ta ? 'திட்டங்கள் எதுவும் கிடைக்கவில்லை' : 'No schemes found'}</p>
+          <p className="text-slate-500">
+            {ta ? 'திட்டங்கள் எதுவும் கிடைக்கவில்லை' : 'No schemes found'}
+          </p>
+          {(search || category !== 'All') && (
+            <button
+              onClick={() => { handleSearch(''); setCategory('All'); }}
+              className="mt-3 text-sm font-semibold"
+              style={{ color: 'var(--navy)' }}
+            >
+              {ta ? 'வடிகட்டிகளை அழிக்கவும்' : 'Clear filters'}
+            </button>
+          )}
         </div>
       )}
     </div>
