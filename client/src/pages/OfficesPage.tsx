@@ -1,22 +1,37 @@
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
-import { MapPin, Navigation, Clock, Briefcase, AlertCircle } from 'lucide-react';
+import { MapPin, Navigation, Clock, Briefcase, AlertCircle, ChevronDown } from 'lucide-react';
 import { api } from '../lib/api';
 import type { Office } from '../types';
 
 export default function OfficesPage() {
-  const { data = [], isLoading } = useQuery({
-    queryKey: ['offices'],
-    queryFn: async () => (await api.get<Office[]>('/offices')).data,
-  });
   const [loc, setLoc] = useState<{ lat: number; lng: number } | null>(null);
-  const mapKey = import.meta.env.VITE_GOOGLE_MAPS_EMBED_API_KEY;
+  const [locDenied, setLocDenied] = useState(false);
+  const [selectedCity, setSelectedCity] = useState('');
 
   useEffect(() => {
-    navigator.geolocation?.getCurrentPosition((p) =>
-      setLoc({ lat: p.coords.latitude, lng: p.coords.longitude })
+    navigator.geolocation?.getCurrentPosition(
+      (p) => setLoc({ lat: p.coords.latitude, lng: p.coords.longitude }),
+      () => setLocDenied(true)
     );
   }, []);
+
+  const { data: cities = [] } = useQuery({
+    queryKey: ['office-cities'],
+    queryFn: async () => (await api.get<string[]>('/offices/cities')).data,
+  });
+
+  const queryParam = selectedCity
+    ? `?city=${encodeURIComponent(selectedCity)}`
+    : loc
+    ? `?lat=${loc.lat}&lng=${loc.lng}`
+    : null;
+
+  const { data = [], isLoading } = useQuery({
+    queryKey: ['offices', queryParam],
+    enabled: !!queryParam,
+    queryFn: async () => (await api.get<Office[]>(`/offices${queryParam}`)).data,
+  });
 
   return (
     <div className="space-y-8">
@@ -37,38 +52,64 @@ export default function OfficesPage() {
         <p className="text-white/70 text-sm">Find and get directions to government offices near you</p>
       </div>
 
-      {/* Map */}
-      {loc ? (
-        <div className="overflow-hidden rounded-2xl shadow-lg">
-          <iframe
-            className="h-80 w-full block"
-            loading="lazy"
-            title="Nearby offices map"
-            src={`https://www.google.com/maps/embed/v1/view?key=${mapKey}&center=${loc.lat},${loc.lng}&zoom=13`}
-          />
+      {/* City selector */}
+      <div className="flex items-center gap-3">
+        <div className="relative flex-1 max-w-xs">
+          <ChevronDown size={15} className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: 'var(--navy)' }} />
+          <select
+            value={selectedCity}
+            onChange={(e) => setSelectedCity(e.target.value)}
+            className="w-full appearance-none rounded-xl border px-4 py-2.5 pr-8 text-sm font-medium focus:outline-none"
+            style={{ borderColor: '#1a3c8f30', color: 'var(--navy-dark)', background: '#fff' }}
+          >
+            <option value="">📍 Use my location</option>
+            {cities.map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
         </div>
-      ) : (
+        {selectedCity && (
+          <button
+            onClick={() => setSelectedCity('')}
+            className="text-xs underline"
+            style={{ color: 'var(--navy)' }}
+          >
+            Clear
+          </button>
+        )}
+      </div>
+
+      {/* Location status */}
+      {!selectedCity && !loc && (
         <div
           className="flex items-center gap-3 rounded-2xl p-5"
           style={{ background: '#f9731610', border: '1px solid #f9731630' }}
         >
           <AlertCircle size={20} style={{ color: 'var(--saffron)' }} />
           <p className="text-sm font-medium" style={{ color: 'var(--navy-dark)' }}>
-            Enable location access to see the map of nearby offices.
+            {locDenied
+              ? 'Location access was denied. Select a city manually from the dropdown above.'
+              : 'Enable location access or select a city manually above.'}
           </p>
         </div>
       )}
 
       {/* Office count */}
-      <p className="text-sm text-slate-500">{data.length} offices listed</p>
+      {queryParam && <p className="text-sm text-slate-500">
+        {selectedCity ? `${data.length} offices in ${selectedCity}` : `${data.length} offices near you`}
+      </p>}
 
       {/* Office cards */}
-      {isLoading ? (
+      {!queryParam ? null : isLoading ? (
         <div className="grid gap-4 sm:grid-cols-2">
           {Array.from({ length: 4 }).map((_, i) => (
             <div key={i} className="card h-40 animate-pulse" style={{ background: '#e2e8f0' }} />
           ))}
         </div>
+      ) : data.length === 0 ? (
+        <p className="text-sm text-slate-500">
+          {selectedCity ? `No offices found in ${selectedCity}.` : 'No government offices found within 30 km of your location.'}
+        </p>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2">
           {data.map((o) => (

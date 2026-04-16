@@ -40,10 +40,13 @@ const matchScheme = (eligibilityText: string, user: EligibilityData): MatchResul
   const text = eligibilityText.toLowerCase();
   const reasons: string[] = [];
 
-  // ── Income ──
-  const incomeLakhMatches = Array.from(text.matchAll(/(\d+(?:\.\d+)?)\s*lakh/g));
-  if (incomeLakhMatches.length > 0) {
-    const incomeMax = Math.max(...incomeLakhMatches.map((m) => Number(m[1]) * 100000));
+  // ── Income — only match lakh values near income-related keywords ──
+  const incomeContextMatches = [
+    ...Array.from(text.matchAll(/(?:income|earning|salary|annual)[^.]{0,50}?(\d+(?:\.\d+)?)\s*lakh/gi)),
+    ...Array.from(text.matchAll(/(\d+(?:\.\d+)?)\s*lakh[^.]{0,40}?(?:income|annual|per\s*year|salary)/gi)),
+  ];
+  if (incomeContextMatches.length > 0) {
+    const incomeMax = Math.max(...incomeContextMatches.map((m) => Number(m[1]) * 100000));
     if (user.annualIncome > incomeMax) return { eligible: false, reasons: [] };
     reasons.push(`Income ≤ ₹${(incomeMax / 100000).toFixed(1)}L`);
   }
@@ -75,32 +78,39 @@ const matchScheme = (eligibilityText: string, user: EligibilityData): MatchResul
     }
   }
 
-  // ── Category — only restrict if scheme explicitly names a specific caste group ──
+  // ── Category — OR logic: user must belong to at least one mentioned group ──
   const needsSC  = /\bsc\b|scheduled caste/i.test(text);
   const needsST  = /\bst\b|scheduled tribe/i.test(text);
   const needsOBC = /\bobc\b|other backward/i.test(text);
-  if (needsSC && user.category !== "SC") return { eligible: false, reasons: [] };
-  if (needsST && user.category !== "ST") return { eligible: false, reasons: [] };
-  if (needsOBC && user.category !== "OBC") return { eligible: false, reasons: [] };
-  if (needsSC || needsST || needsOBC) reasons.push(`Category: ${user.category}`);
+  if (needsSC || needsST || needsOBC) {
+    const allowed: string[] = [];
+    if (needsSC) allowed.push("SC");
+    if (needsST) allowed.push("ST");
+    if (needsOBC) allowed.push("OBC");
+    if (!allowed.includes(user.category)) return { eligible: false, reasons: [] };
+    reasons.push(`Category: ${user.category}`);
+  }
 
-  // ── Gender — only restrict if scheme is explicitly for women/girls ──
-  const femaleOnly = /\bwomen\b|\bwoman\b|\bfemale\b|\bgirl\b|\bmahila\b/i.test(text);
+  // ── Gender — only restrict if scheme is exclusively for women (not combined with caste groups) ──
+  const mentionsWomen = /\bwomen\b|\bwoman\b|\bfemale\b|\bgirl\b|\bmahila\b/i.test(text);
+  const femaleOnly = mentionsWomen && !(needsSC || needsST || needsOBC);
   if (femaleOnly && user.gender !== "Female") return { eligible: false, reasons: [] };
   if (femaleOnly) reasons.push("Female");
 
   // ── Occupation-based conditions — independent checks ──
-  const requiresFarmer = /\bfarmer\b|\bagriculture\b|\bcultivator\b|\bkisan\b|\bfisherm/i.test(text);
-  const requiresStudent = /\bstudent\b|\bschool\b|\bcollege\b|\bscholarship\b/i.test(text);
-  const requiresBusiness = /\bentrepreneur\b|\bmsme\b|\bself.?employed\b|\bstartup\b|\bvendor\b|\bstreet vendor\b/i.test(text);
-  const requiresWorker = /\bunorganized worker\b|\blabour\b|\bworker\b|\bartisan\b|\bcraftspeo/i.test(text);
+  const requiresFarmer   = /\bfarmer\b|\bagriculture\b|\bcultivator\b|\bkisan\b/i.test(text);
+  const requiresFisherman = /\bfisherm/i.test(text);
+  const requiresStudent  = /\bstudent\b|\bschool\b|\bcollege\b|\bscholarship\b/i.test(text);
+  const requiresBusiness = /\bentrepreneur\b|\bmsme\b|\bself.?employed\b|\bstartup\b|\bstreet vendor\b/i.test(text);
+  const requiresWorker   = /\bunorganized worker\b|\binformal worker\b|\bartisan\b|\bcraftspeo/i.test(text);
 
   if (requiresFarmer && !(user.isFarmer || user.occupation === "Farmer")) return { eligible: false, reasons: [] };
+  if (requiresFisherman && !(user.isFarmer || ["Farmer", "Other", "Self Employed"].includes(user.occupation))) return { eligible: false, reasons: [] };
   if (requiresStudent && !(user.isStudent || user.occupation === "Student")) return { eligible: false, reasons: [] };
   if (requiresBusiness && user.occupation !== "Self Employed") return { eligible: false, reasons: [] };
   if (requiresWorker && !["Farmer", "Self Employed", "Unemployed", "Other"].includes(user.occupation)) return { eligible: false, reasons: [] };
 
-  if (requiresFarmer) reasons.push("Farmer");
+  if (requiresFarmer || requiresFisherman) reasons.push("Farmer / Fisherman");
   if (requiresStudent) reasons.push("Student");
   if (requiresBusiness) reasons.push("Self Employed");
 
@@ -108,7 +118,7 @@ const matchScheme = (eligibilityText: string, user: EligibilityData): MatchResul
   const requiresSenior = /senior citizen|elderly|old age|\bage\s*60\b|above\s*60/i.test(text);
   const requiresDisabled = /\bdisabled\b|\bdisability\b|differently.?abled|\budid\b/i.test(text);
   const requiresWidow = /\bwidow\b|\bwidower\b/i.test(text);
-  const requiresBPL = /\bbpl\b|below poverty|ration card|antyodaya/i.test(text);
+  const requiresBPL = /\bbpl\b|below poverty|antyodaya/i.test(text);
 
   if (requiresSenior && !(user.isSeniorCitizen || user.age >= 60)) return { eligible: false, reasons: [] };
   if (requiresDisabled && !user.isDifferentlyAbled) return { eligible: false, reasons: [] };

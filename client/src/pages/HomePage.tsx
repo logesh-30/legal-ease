@@ -30,13 +30,13 @@ export default function HomePage() {
   const q = search.toLowerCase().trim();
   const matchedServices = q
     ? services.filter((s) =>
-        s.nameEn.toLowerCase().startsWith(q) ||
-        s.nameTa.toLowerCase().startsWith(q))
+        s.nameEn.toLowerCase().includes(q) ||
+        s.nameTa.toLowerCase().includes(q))
     : [];
   const matchedSchemes = q
     ? schemes.filter((s) =>
-        s.nameEn.toLowerCase().startsWith(q) ||
-        s.nameTa.toLowerCase().startsWith(q))
+        s.nameEn.toLowerCase().includes(q) ||
+        s.nameTa.toLowerCase().includes(q))
     : [];
   const showDropdown = q.length > 0 && (matchedServices.length > 0 || matchedSchemes.length > 0);
 
@@ -60,7 +60,7 @@ export default function HomePage() {
       setSearch(transcript);
       const tq = transcript.toLowerCase();
       const schemeHit = schemes.find((s) =>
-        s.nameEn.toLowerCase().startsWith(tq) || s.nameTa.toLowerCase().startsWith(tq)
+        s.nameEn.toLowerCase().includes(tq) || s.nameTa.toLowerCase().includes(tq)
       );
       if (schemeHit) navigate(`/schemes?q=${encodeURIComponent(transcript)}`);
       else navigate(`/services?q=${encodeURIComponent(transcript)}`);

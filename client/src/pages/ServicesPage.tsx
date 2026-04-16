@@ -26,8 +26,8 @@ export default function ServicesPage() {
     const q = search.toLowerCase().trim();
     if (!q) return true;
     return (
-      s.nameEn.toLowerCase().startsWith(q) ||
-      s.nameTa.toLowerCase().startsWith(q)
+      s.nameEn.toLowerCase().includes(q) ||
+      s.nameTa.toLowerCase().includes(q)
     );
   });
 

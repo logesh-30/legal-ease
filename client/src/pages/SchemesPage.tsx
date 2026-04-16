@@ -39,8 +39,8 @@ export default function SchemesPage() {
     const q = search.toLowerCase().trim();
     const matchesSearch =
       !q ||
-      s.nameEn.toLowerCase().startsWith(q) ||
-      s.nameTa.toLowerCase().startsWith(q);
+      s.nameEn.toLowerCase().includes(q) ||
+      s.nameTa.toLowerCase().includes(q);
     return matchesCategory && matchesSearch;
   });
 
