@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, CheckCircle, FileCheck, Scale, Bookmark, BookmarkCheck } from 'lucide-react';
+import { ArrowLeft, ExternalLink, CheckCircle, Scale, Bookmark, BookmarkCheck } from 'lucide-react';
 import { api } from '../lib/api';
 import { useAuth } from '../context/AuthContext';
+import DocumentChecklist from '../components/DocumentChecklist';
 import type { Service } from '../types';
 
 export default function ServiceDetailPage() {
@@ -128,26 +129,12 @@ export default function ServiceDetailPage() {
         </ol>
       </div>
 
-      {/* Documents */}
-      <div className="card p-6">
-        <div className="flex items-center gap-2 mb-4">
-          <FileCheck size={20} style={{ color: 'var(--sky)' }} />
-          <h2 className="text-lg font-bold" style={{ color: 'var(--navy-dark)' }}>
-            {ta ? 'தேவையான ஆவணங்கள்' : 'Required Documents'}
-          </h2>
-        </div>
-        <ul className="space-y-2">
-          {(ta ? s.documentsTa : s.documentsEn).map((doc, i) => (
-            <li key={i} className="flex items-start gap-2 text-sm text-slate-700">
-              <span
-                className="mt-1.5 h-2 w-2 shrink-0 rounded-full"
-                style={{ background: 'var(--saffron)' }}
-              />
-              {doc}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {/* Document Checklist */}
+      <DocumentChecklist
+        schemeId={s._id}
+        documents={s.documentsEn ?? []}
+        lang={ta ? 'ta' : 'en'}
+      />
 
       {/* Legal details */}
       <div className="card p-6">

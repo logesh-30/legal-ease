@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { api } from '../lib/api';
 import { useAuth } from '../context/AuthContext';
+import DocumentChecklist from '../components/DocumentChecklist';
 import type { Scheme } from '../types';
 
 type Answers = Record<string, string>;
@@ -237,13 +238,42 @@ export default function SchemeDetailPage() {
       {[
         { label: tx.eligibility, content: lang === 'ta' ? s.eligibilityTa : s.eligibilityEn, color: 'var(--sky)' },
         { label: tx.benefits,    content: lang === 'ta' ? s.benefitsTa    : s.benefitsEn,    color: 'var(--mint)' },
-        { label: tx.howToApply,  content: lang === 'ta' ? s.howToApplyTa  : s.howToApplyEn,  color: 'var(--gold)' },
       ].map(({ label, content, color }) => (
         <div key={label} className="card p-6">
           <h2 className="mb-2 text-sm font-bold uppercase tracking-wide" style={{ color }}>{label}</h2>
           <p className="text-sm text-slate-700 leading-relaxed">{content}</p>
         </div>
       ))}
+
+      {/* How to Apply — numbered steps */}
+      <div className="card p-6">
+        <h2 className="mb-4 text-sm font-bold uppercase tracking-wide" style={{ color: 'var(--gold)' }}>
+          {tx.howToApply}
+        </h2>
+        <ol className="space-y-3">
+          {(lang === 'ta' ? s.howToApplyTa : s.howToApplyEn)
+            .split('\n')
+            .filter((step) => step.trim())
+            .map((step, i) => (
+              <li key={i} className="flex gap-3">
+                <span
+                  className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white mt-0.5"
+                  style={{ background: 'var(--navy)', minWidth: '1.25rem' }}
+                >
+                  {i + 1}
+                </span>
+                <span className="text-sm text-slate-700 leading-relaxed">{step.trim()}</span>
+              </li>
+            ))}
+        </ol>
+      </div>
+
+      {/* Document Checklist */}
+      <DocumentChecklist
+        schemeId={s._id}
+        documents={s.documentsEn ?? []}
+        lang={lang}
+      />
 
       {/* Actions */}
       <div className="flex flex-wrap gap-3">
